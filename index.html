@@ -213,6 +213,7 @@
         .nav-links {
             display: flex;
             list-style: none;
+            align-items: center;
         }
         
         .nav-links li {
@@ -255,6 +256,77 @@
             cursor: pointer;
             color: var(--dark);
             z-index: 1001;
+        }
+        
+        /* User Menu */
+        .user-menu {
+            position: relative;
+        }
+        
+        .user-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .user-btn:hover {
+            background: var(--light);
+        }
+        
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            min-width: 200px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        
+        .user-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .user-dropdown a, .user-dropdown button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        
+        .user-dropdown a:hover, .user-dropdown button:hover {
+            background: var(--light);
+            color: var(--secondary);
+        }
+        
+        .user-dropdown hr {
+            border: none;
+            border-top: 1px solid var(--light);
+            margin: 8px 0;
         }
         
         /* Hero Section */
@@ -905,7 +977,7 @@
             transform: translateY(-3px);
         }
         
-        /* Enrollment Modal */
+        /* Auth Modals */
         .modal {
             display: none;
             position: fixed;
@@ -927,7 +999,7 @@
             background: white;
             border-radius: 10px;
             width: 90%;
-            max-width: 600px;
+            max-width: 500px;
             padding: 2rem;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -957,7 +1029,66 @@
             text-align: center;
         }
         
-        /* Enrollment Form */
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light);
+        }
+        
+        .form-tab {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .form-tab.active {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+        }
+        
+        .form-content {
+            display: none;
+        }
+        
+        .form-content.active {
+            display: block;
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .form-footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Enrollment Modal */
+        .enrollment-modal .modal-content {
+            max-width: 600px;
+        }
+        
         .enrollment-form {
             display: flex;
             flex-direction: column;
@@ -1138,6 +1269,62 @@
             color: #155724;
         }
         
+        /* User Dashboard */
+        .user-dashboard {
+            padding: 120px 0 80px;
+            background: #f5f7fa;
+            min-height: 100vh;
+        }
+        
+        .user-courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .user-course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .user-course-header {
+            padding: 1.5rem;
+            background: var(--primary);
+            color: white;
+        }
+        
+        .user-course-body {
+            padding: 1.5rem;
+        }
+        
+        .progress-container {
+            margin: 1rem 0;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: var(--light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
             .step {
@@ -1273,7 +1460,22 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" id="adminLogin">Admin</a></li>
+                    <li class="user-menu" id="userMenu" style="display: none;">
+                        <button class="user-btn" id="userBtn">
+                            <i class="fas fa-user-circle"></i>
+                            <span id="userName">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#" id="userDashboardLink">My Dashboard</a>
+                            <a href="#" id="profileLink">My Profile</a>
+                            <hr>
+                            <button id="logoutBtn">Logout</button>
+                        </div>
+                    </li>
+                    <li id="authLinks">
+                        <a href="#" id="registerLoginBtn">Register/Login</a>
+                    </li>
                 </ul>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -1647,16 +1849,36 @@
         </div>
     </footer>
 
-    <!-- Enrollment Modal -->
-    <div class="modal" id="enrollmentModal">
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
         <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <h2 class="modal-title">Enroll in <span id="courseTitle">Course</span></h2>
+            <button class="modal-close" id="authModalClose">&times;</button>
+            <h2 class="modal-title">Welcome to NEXUS SOLUTION</h2>
             
-            <form class="enrollment-form" id="enrollmentForm">
-                <!-- Personal Information -->
-                <div class="form-section">
-                    <h3><i class="fas fa-user"></i> Personal Information</h3>
+            <div class="form-tabs">
+                <button class="form-tab active" data-tab="login">Login</button>
+                <button class="form-tab" data-tab="register">Register</button>
+            </div>
+            
+            <form class="auth-form" id="loginForm">
+                <div class="form-content active" id="loginContent">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="#" id="switchToRegister">Register here</a></p>
+                    </div>
+                </div>
+            </form>
+            
+            <form class="auth-form" id="registerForm">
+                <div class="form-content" id="registerContent">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
@@ -1667,19 +1889,66 @@
                             <input type="text" id="lastName" name="lastName" required>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <input type="email" id="registerEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="terms" name="terms" required>
+                            I agree to the <a href="terms-of-service.html" target="_blank">Terms of Service</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn">Create Account</button>
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Enrollment Modal -->
+    <div class="modal enrollment-modal" id="enrollmentModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2 class="modal-title">Enroll in <span id="courseTitle">Course</span></h2>
+            
+            <form class="enrollment-form" id="enrollmentForm">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3><i class="fas fa-user"></i> Personal Information</h3>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email Address</label>
+                            <label for="enrollFirstName">First Name</label>
+                            <input type="text" id="enrollFirstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enrollLastName">Last Name</label>
+                            <input type="text" id="enrollLastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="enrollEmail">Email Address</label>
                             <input type="email" id="enrollEmail" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <label for="enrollPhone">Phone Number</label>
+                            <input type="tel" id="enrollPhone" name="phone" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" id="address" name="address" required>
+                        <label for="enrollAddress">Address</label>
+                        <input type="text" id="enrollAddress" name="address" required>
                     </div>
                 </div>
                 
@@ -1753,7 +2022,7 @@
                     
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" id="terms" name="terms" required>
+                            <input type="checkbox" id="enrollTerms" name="terms" required>
                             I agree to the <a href="terms-of-service.html" target="_blank">Terms of Service</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
                         </label>
                     </div>
@@ -1831,6 +2100,47 @@
         </div>
     </div>
 
+    <!-- User Dashboard -->
+    <div class="modal" id="userDashboard">
+        <div class="modal-content">
+            <button class="modal-close" id="userDashboardClose">&times;</button>
+            <h2 class="modal-title">My Dashboard</h2>
+            
+            <div class="user-dashboard">
+                <div class="dashboard-header">
+                    <h2>Welcome, <span id="dashboardUserName">User</span></h2>
+                    <p>Track your course progress and manage your learning journey</p>
+                </div>
+                
+                <h3>My Courses</h3>
+                <div class="user-courses" id="userCourses">
+                    <!-- User courses will be populated here -->
+                </div>
+                
+                <div class="dashboard-table" style="margin-top: 2rem;">
+                    <div class="table-header">
+                        <h3>Enrollment History</h3>
+                    </div>
+                    <div class="table-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Course</th>
+                                    <th>Enrollment Date</th>
+                                    <th>Status</th>
+                                    <th>Progress</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userEnrollmentsTable">
+                                <!-- User enrollment data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- WhatsApp Float Button -->
     <a href="https://wa.me/1234567890?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20NEXUS%20SOLUTION" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -1842,6 +2152,306 @@
     </div>
 
     <script>
+        // Authentication System
+        const authModal = document.getElementById('authModal');
+        const authModalClose = document.getElementById('authModalClose');
+        const registerLoginBtn = document.getElementById('registerLoginBtn');
+        const userMenu = document.getElementById('userMenu');
+        const authLinks = document.getElementById('authLinks');
+        const userBtn = document.getElementById('userBtn');
+        const userDropdown = document.getElementById('userDropdown');
+        const userName = document.getElementById('userName');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const userDashboardLink = document.getElementById('userDashboardLink');
+        const userDashboard = document.getElementById('userDashboard');
+        const userDashboardClose = document.getElementById('userDashboardClose');
+        
+        // Form tabs
+        const formTabs = document.querySelectorAll('.form-tab');
+        const loginContent = document.getElementById('loginContent');
+        const registerContent = document.getElementById('registerContent');
+        const switchToRegister = document.getElementById('switchToRegister');
+        const switchToLogin = document.getElementById('switchToLogin');
+        
+        // Forms
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        
+        // Initialize users in localStorage if not exists
+        function initializeUsers() {
+            if (!localStorage.getItem('users')) {
+                const defaultUsers = [
+                    {
+                        id: 1,
+                        firstName: 'Admin',
+                        lastName: 'User',
+                        email: 'admin@nexussolution.com',
+                        password: 'admin123',
+                        role: 'admin',
+                        createdAt: new Date().toISOString()
+                    },
+                    {
+                        id: 2,
+                        firstName: 'John',
+                        lastName: 'Doe',
+                        email: 'student@nexussolution.com',
+                        password: 'student123',
+                        role: 'student',
+                        createdAt: new Date().toISOString()
+                    }
+                ];
+                localStorage.setItem('users', JSON.stringify(defaultUsers));
+            }
+            
+            if (!localStorage.getItem('currentUser')) {
+                localStorage.setItem('currentUser', JSON.stringify(null));
+            }
+        }
+        
+        // Check if user is logged in
+        function checkAuthStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                // User is logged in
+                authLinks.style.display = 'none';
+                userMenu.style.display = 'block';
+                userName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+            } else {
+                // User is not logged in
+                authLinks.style.display = 'block';
+                userMenu.style.display = 'none';
+            }
+        }
+        
+        // Register new user
+        function registerUser(userData) {
+            const users = JSON.parse(localStorage.getItem('users'));
+            const newUser = {
+                id: users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1,
+                ...userData,
+                role: 'student',
+                createdAt: new Date().toISOString()
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Auto login after registration
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+            checkAuthStatus();
+            authModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            alert('Registration successful! Welcome to NEXUS SOLUTION Academy.');
+        }
+        
+        // Login user
+        function loginUser(email, password) {
+            const users = JSON.parse(localStorage.getItem('users'));
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                checkAuthStatus();
+                authModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                
+                alert(`Welcome back, ${user.firstName}!`);
+                return true;
+            } else {
+                alert('Invalid email or password. Please try again.');
+                return false;
+            }
+        }
+        
+        // Logout user
+        function logoutUser() {
+            localStorage.setItem('currentUser', JSON.stringify(null));
+            checkAuthStatus();
+            userDropdown.classList.remove('active');
+        }
+        
+        // Event Listeners for Authentication
+        registerLoginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            authModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        authModalClose.addEventListener('click', function() {
+            authModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        userBtn.addEventListener('click', function() {
+            userDropdown.classList.toggle('active');
+        });
+        
+        logoutBtn.addEventListener('click', function() {
+            logoutUser();
+        });
+        
+        userDashboardLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            userDropdown.classList.remove('active');
+            loadUserDashboard();
+            userDashboard.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        userDashboardClose.addEventListener('click', function() {
+            userDashboard.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Form tab switching
+        formTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                
+                // Update active tab
+                formTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show corresponding form
+                if (tabName === 'login') {
+                    loginContent.classList.add('active');
+                    registerContent.classList.remove('active');
+                } else {
+                    loginContent.classList.remove('active');
+                    registerContent.classList.add('active');
+                }
+            });
+        });
+        
+        switchToRegister.addEventListener('click', function(e) {
+            e.preventDefault();
+            formTabs[1].click();
+        });
+        
+        switchToLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            formTabs[0].click();
+        });
+        
+        // Form submissions
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            loginUser(email, password);
+        });
+        
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+            
+            // Validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
+            
+            if (!terms) {
+                alert('You must agree to the Terms of Service and Privacy Policy.');
+                return;
+            }
+            
+            // Check if user already exists
+            const users = JSON.parse(localStorage.getItem('users'));
+            const existingUser = users.find(u => u.email === email);
+            
+            if (existingUser) {
+                alert('An account with this email already exists. Please login instead.');
+                return;
+            }
+            
+            // Register new user
+            registerUser({ firstName, lastName, email, password });
+        });
+        
+        // Load user dashboard data
+        function loadUserDashboard() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const enrollments = JSON.parse(localStorage.getItem('enrollments') || '[]');
+            const userEnrollments = enrollments.filter(e => e.email === currentUser.email);
+            
+            // Update user name
+            document.getElementById('dashboardUserName').textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+            
+            // Populate user courses
+            const userCoursesContainer = document.getElementById('userCourses');
+            userCoursesContainer.innerHTML = '';
+            
+            if (userEnrollments.length === 0) {
+                userCoursesContainer.innerHTML = '<p>You are not enrolled in any courses yet.</p>';
+            } else {
+                userEnrollments.forEach(enrollment => {
+                    const courseCard = document.createElement('div');
+                    courseCard.className = 'user-course-card';
+                    
+                    // Generate random progress for demo
+                    const progress = Math.floor(Math.random() * 100);
+                    
+                    courseCard.innerHTML = `
+                        <div class="user-course-header">
+                            <h3>${enrollment.course}</h3>
+                        </div>
+                        <div class="user-course-body">
+                            <p>Enrolled on: ${new Date(enrollment.timestamp).toLocaleDateString()}</p>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: ${progress}%"></div>
+                                </div>
+                                <div class="progress-text">
+                                    <span>Progress</span>
+                                    <span>${progress}%</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="margin-top: 1rem;">Continue Learning</button>
+                        </div>
+                    `;
+                    
+                    userCoursesContainer.appendChild(courseCard);
+                });
+            }
+            
+            // Populate enrollment history table
+            const userEnrollmentsTable = document.getElementById('userEnrollmentsTable');
+            userEnrollmentsTable.innerHTML = '';
+            
+            userEnrollments.forEach(enrollment => {
+                const progress = Math.floor(Math.random() * 100);
+                const status = progress === 100 ? 'Completed' : 'In Progress';
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${enrollment.course}</td>
+                    <td>${new Date(enrollment.timestamp).toLocaleDateString()}</td>
+                    <td><span class="status ${status === 'Completed' ? 'status-approved' : 'status-pending'}">${status}</span></td>
+                    <td>${progress}%</td>
+                `;
+                userEnrollmentsTable.appendChild(row);
+            });
+        }
+        
+        // Initialize the system
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeUsers();
+            checkAuthStatus();
+            
+            // Initialize any empty arrays in localStorage
+            if (!localStorage.getItem('enrollments')) {
+                localStorage.setItem('enrollments', JSON.stringify([]));
+            }
+        });
+
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
@@ -1919,8 +2529,23 @@
         // Open enrollment modal
         enrollButtons.forEach(button => {
             button.addEventListener('click', function() {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                
+                if (!currentUser) {
+                    alert('Please login or register to enroll in a course.');
+                    authModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    return;
+                }
+                
                 const course = this.getAttribute('data-course');
                 courseTitle.textContent = course;
+                
+                // Pre-fill form with user data
+                document.getElementById('enrollFirstName').value = currentUser.firstName;
+                document.getElementById('enrollLastName').value = currentUser.lastName;
+                document.getElementById('enrollEmail').value = currentUser.email;
+                
                 enrollmentModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
@@ -1951,6 +2576,8 @@
         enrollmentForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
             // Simulate backend processing
             const formData = new FormData(this);
             const enrollmentData = {
@@ -1959,7 +2586,8 @@
                 email: formData.get('email'),
                 phone: formData.get('phone'),
                 course: courseTitle.textContent,
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toISOString(),
+                userId: currentUser.id
             };
             
             // Save to localStorage (simulating database)
@@ -1991,6 +2619,20 @@
         // Open admin dashboard
         adminLogin.addEventListener('click', function(e) {
             e.preventDefault();
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!currentUser) {
+                alert('Please login to access the admin dashboard.');
+                authModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                return;
+            }
+            
+            if (currentUser.role !== 'admin') {
+                alert('You do not have permission to access the admin dashboard.');
+                return;
+            }
+            
             adminDashboard.classList.add('active');
             document.body.style.overflow = 'hidden';
             loadEnrollmentData();
@@ -2075,14 +2717,6 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        });
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize any empty arrays in localStorage
-            if (!localStorage.getItem('enrollments')) {
-                localStorage.setItem('enrollments', JSON.stringify([]));
-            }
         });
     </script>
 </body>
