@@ -1908,4 +1908,182 @@
         // Enrollment System
         const enrollmentModal = document.getElementById('enrollmentModal');
         const modalClose = document.getElementById('modalClose');
-        const courseTitle = document.getElementByI
+        const courseTitle = document.getElementById('courseTitle');
+        const enrollmentForm = document.getElementById('enrollmentForm');
+        const enrollmentSuccess = document.getElementById('enrollmentSuccess');
+        const successClose = document.getElementById('successClose');
+        const enrollButtons = document.querySelectorAll('.enroll-btn');
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        const creditCardFields = document.getElementById('creditCardFields');
+
+        // Open enrollment modal
+        enrollButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const course = this.getAttribute('data-course');
+                courseTitle.textContent = course;
+                enrollmentModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close enrollment modal
+        modalClose.addEventListener('click', function() {
+            enrollmentModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Payment method selection
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', function() {
+                paymentMethods.forEach(m => m.classList.remove('active'));
+                this.classList.add('active');
+                
+                const paymentType = this.getAttribute('data-method');
+                if (paymentType === 'credit-card') {
+                    creditCardFields.style.display = 'block';
+                } else {
+                    creditCardFields.style.display = 'none';
+                }
+            });
+        });
+
+        // Enrollment form submission
+        enrollmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate backend processing
+            const formData = new FormData(this);
+            const enrollmentData = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                course: courseTitle.textContent,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Save to localStorage (simulating database)
+            let enrollments = JSON.parse(localStorage.getItem('enrollments') || '[]');
+            enrollments.push(enrollmentData);
+            localStorage.setItem('enrollments', JSON.stringify(enrollments));
+            
+            // Show success message
+            enrollmentForm.style.display = 'none';
+            enrollmentSuccess.style.display = 'block';
+        });
+
+        // Close success message
+        successClose.addEventListener('click', function() {
+            enrollmentModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            enrollmentForm.style.display = 'block';
+            enrollmentSuccess.style.display = 'none';
+            enrollmentForm.reset();
+        });
+
+        // Admin Dashboard
+        const adminLogin = document.getElementById('adminLogin');
+        const adminDashboard = document.getElementById('adminDashboard');
+        const adminClose = document.getElementById('adminClose');
+        const refreshData = document.getElementById('refreshData');
+        const exportData = document.getElementById('exportData');
+
+        // Open admin dashboard
+        adminLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            adminDashboard.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            loadEnrollmentData();
+        });
+
+        // Close admin dashboard
+        adminClose.addEventListener('click', function() {
+            adminDashboard.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Load enrollment data
+        function loadEnrollmentData() {
+            const enrollments = JSON.parse(localStorage.getItem('enrollments') || '[]');
+            const tableBody = document.getElementById('enrollmentsTable');
+            
+            // Update stats
+            document.getElementById('totalEnrollments').textContent = enrollments.length;
+            document.getElementById('pendingEnrollments').textContent = enrollments.filter(e => !e.approved).length;
+            document.getElementById('completedCourses').textContent = enrollments.filter(e => e.completed).length;
+            
+            // Calculate revenue
+            const revenue = enrollments.reduce((total, enrollment) => {
+                let price = 0;
+                if (enrollment.course === 'Web Development') price = 299;
+                else if (enrollment.course === 'Digital Marketing') price = 249;
+                else if (enrollment.course === 'UI/UX Design') price = 199;
+                return total + price;
+            }, 0);
+            document.getElementById('revenue').textContent = `$${revenue}`;
+            
+            // Populate table
+            tableBody.innerHTML = '';
+            enrollments.forEach((enrollment, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${enrollment.firstName} ${enrollment.lastName}</td>
+                    <td>${enrollment.course}</td>
+                    <td>${new Date(enrollment.timestamp).toLocaleDateString()}</td>
+                    <td><span class="status ${enrollment.approved ? 'status-approved' : 'status-pending'}">${enrollment.approved ? 'Approved' : 'Pending'}</span></td>
+                    <td>
+                        <button class="btn" onclick="approveEnrollment(${index})" ${enrollment.approved ? 'disabled' : ''}>Approve</button>
+                        <button class="btn btn-accent" onclick="completeEnrollment(${index})" ${enrollment.completed ? 'disabled' : ''}>Complete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Approve enrollment
+        window.approveEnrollment = function(index) {
+            const enrollments = JSON.parse(localStorage.getItem('enrollments') || '[]');
+            enrollments[index].approved = true;
+            localStorage.setItem('enrollments', JSON.stringify(enrollments));
+            loadEnrollmentData();
+        };
+
+        // Complete enrollment
+        window.completeEnrollment = function(index) {
+            const enrollments = JSON.parse(localStorage.getItem('enrollments') || '[]');
+            enrollments[index].completed = true;
+            localStorage.setItem('enrollments', JSON.stringify(enrollments));
+            loadEnrollmentData();
+        };
+
+        // Refresh data
+        refreshData.addEventListener('click', loadEnrollmentData);
+
+        // Export data
+        exportData.addEventListener('click', function() {
+            const enrollments = JSON.parse(localStorage.getItem('enrollments') || '[]');
+            const csvContent = "data:text/csv;charset=utf-8," 
+                + "Name,Email,Phone,Course,Date,Status\n"
+                + enrollments.map(e => 
+                    `"${e.firstName} ${e.lastName}",${e.email},${e.phone},${e.course},${e.timestamp},${e.approved ? 'Approved' : 'Pending'}`
+                ).join("\n");
+            
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "enrollments.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize any empty arrays in localStorage
+            if (!localStorage.getItem('enrollments')) {
+                localStorage.setItem('enrollments', JSON.stringify([]));
+            }
+        });
+    </script>
+</body>
+</html>
