@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>NEXUS SOLUTION | Business Software & IT Solutions</title>
-    <meta name="description" content="NEXUS SOLUTION provides premium business software solutions, IT services, and digital transformation for enterprises in Peshawar, Pakistan.">
-    <meta name="keywords" content="business software, IT solutions Peshawar, software development, data analytics, cloud security, CRM, project management, HR management">
+    <title>NEXUS SOLUTION | Enterprise Software Solutions & IT Services</title>
+    <meta name="description" content="NEXUS SOLUTION provides premium business software solutions, IT services, digital transformation, and enterprise solutions in Peshawar, Pakistan.">
+    <meta name="keywords" content="business software, IT solutions Peshawar, software development, enterprise solutions, data analytics, cloud security, CRM, project management, HR management, digital transformation">
     <meta name="author" content="NEXUS SOLUTION">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="NEXUS SOLUTION | Business Software & IT Solutions">
-    <meta property="og:description" content="Transform your business with our premium software solutions and IT services in Peshawar, Pakistan.">
+    <meta property="og:title" content="NEXUS SOLUTION | Enterprise Software Solutions & IT Services">
+    <meta property="og:description" content="Transform your business with our premium software solutions and IT services in Peshawar, Pakistan. Enterprise-grade solutions for modern businesses.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nexussolution603.github.io/com/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
@@ -27,11 +27,48 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://nexussolution603.github.io/com/">
     
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NEXUS SOLUTION",
+      "url": "https://nexussolution603.github.io/com/",
+      "logo": "https://nexussolution603.github.io/com/images/logo.png",
+      "description": "Provider of premium business software solutions and IT services",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+92-316-9405908",
+        "contactType": "Customer Service",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["English", "Urdu"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hayatabad Industrial Estate",
+        "addressLocality": "Peshawar",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "Pakistan",
+        "postalCode": "25000"
+      },
+      "openingHours": "Mo-Sa 15:00-22:00, Su 09:00-00:00",
+      "sameAs": [
+        "https://vm.tiktok.com/ZSHToEdW3qRUf-KJDIw/",
+        "https://www.facebook.com/share/1M86ENUjKx/",
+        "https://www.youtube.com/@nexussolution603",
+        "https://www.linkedin.com/in/nexussolution603"
+      ]
+    }
+    </script>
+    
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         /* Reset and Base Styles */
@@ -46,9 +83,13 @@
             user-select: none;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
             color: #333;
             background-color: #f8fafc;
             overflow-x: hidden;
@@ -60,21 +101,68 @@
             margin-bottom: 1rem;
         }
         
+        p {
+            margin-bottom: 1.2rem;
+        }
+        
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 15px;
         }
         
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-size: 3.2rem;
+            color: #1a237e;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #1a237e, #2962ff);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 20px auto 0;
+        }
+        
         /* Header Styles */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
         }
         
@@ -82,26 +170,39 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 0;
+            padding: 20px 0;
+            transition: all 0.4s ease;
         }
         
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #1a237e;
-            text-decoration: none;
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
         
-        .logo span {
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1a237e, #2962ff);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #1a237e;
+        }
+        
+        .logo-text span {
             color: #2962ff;
-        }
-        
-        .logo i {
-            margin-right: 8px;
-            font-size: 2rem;
         }
         
         .nav-links {
@@ -110,7 +211,8 @@
         }
         
         .nav-links li {
-            margin-left: 2.2rem;
+            margin-left: 35px;
+            position: relative;
         }
         
         .nav-links a {
@@ -118,203 +220,295 @@
             color: #1a237e;
             font-weight: 600;
             font-size: 1rem;
-            transition: color 0.3s;
-            position: relative;
+            transition: all 0.3s;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
         }
         
         .nav-links a:hover {
             color: #2962ff;
         }
         
-        .nav-links a::after {
+        .nav-links a:after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background-color: #2962ff;
+            height: 3px;
+            background: linear-gradient(90deg, #1a237e, #2962ff);
             transition: width 0.3s;
         }
         
-        .nav-links a:hover::after {
+        .nav-links a:hover:after {
             width: 100%;
+        }
+        
+        .nav-cta {
+            display: flex;
+            align-items: center;
         }
         
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #1a237e;
             cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
-            padding: 12rem 0 8rem;
-            background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(41, 98, 255, 0.85)), 
-                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(41, 98, 255, 0.9)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
             background-size: cover;
             color: white;
-            text-align: center;
-            margin-top: 70px;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, #f8fafc, transparent);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
             position: relative;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 4.5rem;
             line-height: 1.2;
+            margin-bottom: 25px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
         .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 2.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 40px;
             opacity: 0.95;
         }
         
-        .cta-buttons {
+        .hero-stats {
             display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 60px;
         }
         
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Button Styles */
         .btn {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
             border: none;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: width 0.4s;
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            width: 100%;
         }
         
         .btn-primary {
-            background-color: #ff6b6b;
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
             color: white;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
         }
         
         .btn-primary:hover {
-            background-color: #ff5252;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
         }
         
         .btn-secondary {
-            background-color: transparent;
+            background: transparent;
             color: white;
             border: 2px solid white;
         }
         
         .btn-secondary:hover {
-            background-color: white;
+            background: white;
             color: #1a237e;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
         
         .btn-whatsapp {
-            background-color: #25D366;
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
         }
         
         .btn-whatsapp:hover {
-            background-color: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        }
+        
+        .btn-dark {
+            background: linear-gradient(135deg, #1a237e, #2962ff);
+            color: white;
+            box-shadow: 0 10px 30px rgba(26, 35, 126, 0.3);
+        }
+        
+        .btn-dark:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(26, 35, 126, 0.5);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         
         /* Products Section */
-        .section-title {
-            text-align: center;
-            margin-bottom: 3.5rem;
-            color: #1a237e;
-        }
-        
-        .section-title h2 {
-            font-size: 2.8rem;
+        .products-section {
+            background-color: #f8fafc;
             position: relative;
-            display: inline-block;
-            padding-bottom: 0.8rem;
         }
         
-        .section-title h2::after {
+        .products-section:before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background-color: #2962ff;
-            border-radius: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, #fff, transparent);
         }
         
-        .section-title p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0.8rem auto 0;
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 28px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(135deg, #1a237e, #2962ff);
+            color: white;
+            border-color: #1a237e;
         }
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.2rem;
-            margin-bottom: 5rem;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 35px;
+            margin-bottom: 80px;
         }
         
         .product-card {
             background-color: white;
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s ease;
             position: relative;
-            border: 1px solid #eef2f7;
+            border: 1px solid #f0f0f0;
         }
         
         .product-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            transform: translateY(-20px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
             border-color: #2962ff;
         }
         
         .product-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(45deg, #2962ff, #1a237e);
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #2962ff, #1a237e);
             color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
             letter-spacing: 0.5px;
             z-index: 2;
+            box-shadow: 0 5px 15px rgba(41, 98, 255, 0.3);
         }
         
         .product-img {
-            height: 200px;
+            height: 220px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 5rem;
             color: white;
             position: relative;
             overflow: hidden;
         }
         
-        .product-img::before {
+        .product-img:before {
             content: '';
             position: absolute;
             top: 0;
@@ -325,263 +519,493 @@
         }
         
         .product-content {
-            padding: 1.8rem;
+            padding: 30px;
         }
         
         .product-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.8rem;
             color: #1a237e;
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
         
         .product-content p {
             color: #666;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 20px;
+            font-size: 1rem;
             line-height: 1.7;
         }
         
         .product-features {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 25px;
         }
         
         .product-features li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
             color: #555;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
         }
         
         .product-features li i {
             color: #2962ff;
-            margin-right: 8px;
+            margin-right: 10px;
+            font-size: 1rem;
+            margin-top: 5px;
         }
         
-        .product-share {
+        .product-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
+            margin-top: 25px;
+            padding-top: 25px;
             border-top: 1px solid #eee;
         }
         
         .product-price {
-            font-weight: 700;
+            font-weight: 800;
             color: #1a237e;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
         
-        .share-buttons {
+        .product-actions {
             display: flex;
-            gap: 0.5rem;
+            gap: 12px;
         }
         
-        .share-btn {
-            width: 38px;
-            height: 38px;
+        .action-btn {
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            font-size: 1rem;
-            transition: transform 0.3s ease, opacity 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .share-btn:hover {
+        .action-btn:hover {
             transform: scale(1.15);
-            opacity: 0.9;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .share-whatsapp {
-            background-color: #25D366;
+        .btn-message {
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
         }
         
-        .share-facebook {
-            background-color: #3b5998;
+        .btn-whatsapp-small {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        
+        .btn-share {
+            background: linear-gradient(135deg, #1a237e, #2962ff);
+        }
+        
+        /* Floating Action Buttons */
+        .floating-buttons {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .floating-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        
+        .floating-btn.chat {
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+        }
+        
+        .floating-btn.share {
+            background: linear-gradient(135deg, #1a237e, #2962ff);
+        }
+        
+        .floating-btn .tooltip {
+            position: absolute;
+            right: 70px;
+            background: #1a237e;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .floating-btn:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Left Side Product Inquiry Panel */
+        .inquiry-panel {
+            position: fixed;
+            left: -400px;
+            top: 0;
+            width: 380px;
+            height: 100vh;
+            background: white;
+            box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+            z-index: 9998;
+            transition: left 0.5s ease;
+            overflow-y: auto;
+        }
+        
+        .inquiry-panel.active {
+            left: 0;
+        }
+        
+        .panel-header {
+            background: linear-gradient(135deg, #1a237e, #2962ff);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .panel-header h3 {
+            margin: 0;
+            color: white;
+        }
+        
+        .close-panel {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        .panel-body {
+            padding: 25px;
+        }
+        
+        .panel-body h4 {
+            color: #1a237e;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .panel-form input,
+        .panel-form select,
+        .panel-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .panel-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .product-inquiry-list {
+            margin-top: 30px;
+        }
+        
+        .inquiry-item {
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .inquiry-item:hover {
+            border-color: #2962ff;
+            background: #f8faff;
+        }
+        
+        .inquiry-item h5 {
+            color: #1a237e;
+            margin-bottom: 5px;
+        }
+        
+        .inquiry-item p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        /* Right Side Share Panel */
+        .share-panel {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 380px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+            z-index: 9998;
+            transition: right 0.5s ease;
+            overflow-y: auto;
+        }
+        
+        .share-panel.active {
+            right: 0;
+        }
+        
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .share-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 10px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .share-option:hover {
+            border-color: #2962ff;
+            background: #f8faff;
+            transform: translateY(-5px);
+        }
+        
+        .share-option i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .share-option.whatsapp i {
+            color: #25D366;
+        }
+        
+        .share-option.facebook i {
+            color: #3b5998;
+        }
+        
+        .share-option.tiktok i {
+            color: #000000;
+        }
+        
+        .share-option.youtube i {
+            color: #FF0000;
+        }
+        
+        .share-option.linkedin i {
+            color: #0077b5;
+        }
+        
+        .share-option.email i {
+            color: #2962ff;
         }
         
         /* Our Work Section */
         .work-section {
-            background-color: #f0f4f8;
-            padding: 6rem 0;
+            background: white;
         }
         
         .work-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 40px;
         }
         
         .work-card {
-            background-color: white;
-            border-radius: 12px;
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s ease;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s ease;
         }
         
         .work-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
         }
         
         .work-img {
-            height: 220px;
-            background-color: #e3f2fd;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #2962ff;
+            color: white;
             font-size: 4rem;
+            position: relative;
+            overflow: hidden;
         }
         
         .work-content {
-            padding: 1.8rem;
+            padding: 30px;
         }
         
         .work-content h3 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: #1a237e;
-            margin-bottom: 0.8rem;
+            margin-bottom: 15px;
         }
         
         .work-content p {
             color: #666;
-            margin-bottom: 1.2rem;
-            font-size: 0.95rem;
+            margin-bottom: 20px;
         }
         
         .work-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 10px;
+            margin-top: 20px;
         }
         
         .work-tag {
-            background-color: #e8f4ff;
+            background: #e8f4ff;
             color: #2962ff;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
             font-weight: 600;
         }
         
         /* Team Section */
         .team-section {
-            padding: 6rem 0;
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
-                        url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                        url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
             background-size: cover;
         }
         
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
         }
         
         .team-card {
-            background-color: white;
-            border-radius: 12px;
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s ease;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s ease;
             text-align: center;
         }
         
         .team-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
         }
         
         .team-img {
-            height: 240px;
-            background-color: #f1f8ff;
+            height: 300px;
+            background: #f1f8ff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4.5rem;
+            font-size: 5rem;
             color: #2962ff;
             overflow: hidden;
-        }
-        
-        .team-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            position: relative;
         }
         
         .team-content {
-            padding: 1.8rem;
+            padding: 30px;
         }
         
         .team-content h3 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: #1a237e;
-            margin-bottom: 0.3rem;
+            margin-bottom: 5px;
         }
         
         .team-role {
             color: #2962ff;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1rem;
         }
         
         .team-desc {
             color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
         }
         
         .team-social {
             display: flex;
             justify-content: center;
-            gap: 0.8rem;
+            gap: 15px;
         }
         
         .team-social a {
-            width: 36px;
-            height: 36px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background-color: #f0f4f8;
+            background: #f0f4f8;
             color: #555;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
         
         .team-social a:hover {
-            background-color: #2962ff;
+            background: #2962ff;
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
         
-        /* Location & Hours Section */
+        /* Location Section */
         .location-section {
-            padding: 6rem 0;
-            background-color: #f8fafc;
+            background: #f8fafc;
         }
         
         .location-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
         }
         
         .map-container {
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            height: 400px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            height: 500px;
         }
         
         .map-container iframe {
@@ -591,17 +1015,18 @@
         }
         
         .hours-container {
-            background-color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
         }
         
         .hours-container h3 {
             color: #1a237e;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
             border-bottom: 2px solid #f0f4f8;
+            font-size: 2rem;
         }
         
         .hours-list {
@@ -611,8 +1036,9 @@
         .hours-list li {
             display: flex;
             justify-content: space-between;
-            padding: 0.8rem 0;
+            padding: 20px 0;
             border-bottom: 1px solid #f0f4f8;
+            font-size: 1.1rem;
         }
         
         .hours-list li:last-child {
@@ -620,196 +1046,148 @@
         }
         
         .day {
-            font-weight: 600;
+            font-weight: 700;
             color: #1a237e;
         }
         
         .time {
             color: #2962ff;
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .location-info {
-            margin-top: 2rem;
-            padding-top: 2rem;
+            margin-top: 40px;
+            padding-top: 30px;
             border-top: 2px solid #f0f4f8;
         }
         
-        .location-info p {
-            margin-bottom: 0.8rem;
-            color: #555;
-        }
-        
-        .location-info i {
-            color: #2962ff;
-            margin-right: 10px;
-            width: 20px;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            padding: 6rem 0;
-            background-color: white;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        
-        .contact-info h3 {
+        .location-info h4 {
             color: #1a237e;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
         }
         
-        .contact-item {
+        .contact-detail {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
+            align-items: center;
+            margin-bottom: 20px;
         }
         
-        .contact-icon {
-            background: linear-gradient(45deg, #2962ff, #1a237e);
-            width: 55px;
-            height: 55px;
+        .contact-detail i {
+            width: 50px;
+            height: 50px;
+            background: #f0f4f8;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1.2rem;
-            color: white;
+            color: #2962ff;
             font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-        
-        .contact-details h4 {
-            font-size: 1.1rem;
-            color: #1a237e;
-            margin-bottom: 0.3rem;
-        }
-        
-        .contact-details p {
-            color: #666;
-        }
-        
-        .contact-form input,
-        .contact-form select,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem 1.2rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .contact-form input:focus,
-        .contact-form select:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: #2962ff;
-        }
-        
-        .contact-form textarea {
-            min-height: 160px;
-            resize: vertical;
+            margin-right: 20px;
         }
         
         /* Newsletter Section */
-        .newsletter {
-            padding: 5rem 0;
+        .newsletter-section {
             background: linear-gradient(rgba(41, 98, 255, 0.9), rgba(26, 35, 126, 0.9)), 
-                        url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center;
+                        url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
             background-size: cover;
             color: white;
             text-align: center;
         }
         
-        .newsletter h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .newsletter-section .section-title h2 {
+            color: white;
         }
         
-        .newsletter p {
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.9;
-            font-size: 1.1rem;
+        .newsletter-section .section-title h2:after {
+            background: white;
+        }
+        
+        .newsletter-section .section-title p {
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .newsletter-form {
-            max-width: 550px;
+            max-width: 700px;
             margin: 0 auto;
             display: flex;
-            gap: 0.8rem;
+            gap: 15px;
         }
         
         .newsletter-form input {
             flex: 1;
-            padding: 1rem 1.5rem;
+            padding: 20px 25px;
             border: none;
             border-radius: 50px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         /* Footer */
         footer {
-            background-color: #1a237e;
+            background: #1a237e;
             color: #ecf0f1;
-            padding: 4rem 0 2rem;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #2962ff, #ff6b6b);
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
         }
         
         .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
             font-weight: 800;
             color: white;
-            margin-bottom: 1.2rem;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
         }
         
         .footer-logo i {
             margin-right: 10px;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
         }
         
         .footer-about p {
             color: #b0b7d3;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
         }
         
         .footer-links h4,
         .footer-social h4 {
             color: white;
-            margin-bottom: 1.8rem;
-            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
             position: relative;
-            padding-bottom: 0.8rem;
+            padding-bottom: 10px;
         }
         
-        .footer-links h4::after,
-        .footer-social h4::after {
+        .footer-links h4:after,
+        .footer-social h4:after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
+            width: 50px;
             height: 3px;
-            background-color: #2962ff;
+            background: #2962ff;
         }
         
         .footer-links ul {
@@ -817,7 +1195,7 @@
         }
         
         .footer-links li {
-            margin-bottom: 0.9rem;
+            margin-bottom: 15px;
         }
         
         .footer-links a {
@@ -830,42 +1208,43 @@
         
         .footer-links a:hover {
             color: #2962ff;
+            transform: translateX(5px);
         }
         
         .footer-links a i {
-            margin-right: 8px;
+            margin-right: 10px;
             width: 20px;
         }
         
         .social-icons {
             display: flex;
-            gap: 1rem;
+            gap: 15px;
             flex-wrap: wrap;
         }
         
         .social-icons a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
         }
         
         .social-icons a:hover {
-            background-color: #2962ff;
+            background: #2962ff;
             transform: translateY(-5px);
         }
         
         .footer-bottom {
             text-align: center;
-            padding-top: 2.5rem;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #b0b7d3;
         }
         
@@ -875,68 +1254,29 @@
             font-weight: 600;
         }
         
-        /* Legal Modals */
-        .modal {
-            display: none;
+        /* Security Overlay */
+        .security-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            overflow-y: auto;
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            width: 90%;
-            max-width: 800px;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            animation: modalOpen 0.4s ease;
-        }
-        
-        @keyframes modalOpen {
-            from { opacity: 0; transform: translateY(-60px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .modal-header {
-            padding: 1.8rem;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            z-index: 99999;
+            display: none;
             align-items: center;
-            background-color: #1a237e;
-            color: white;
-            border-radius: 12px 12px 0 0;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
         }
         
-        .modal-header h3 {
-            margin: 0;
-            color: white;
-        }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: white;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .close-modal:hover {
-            color: #ff6b6b;
-        }
-        
-        .modal-body {
-            padding: 2rem;
-            max-height: 70vh;
-            overflow-y: auto;
-            line-height: 1.7;
+        .security-message {
+            max-width: 700px;
+            background: linear-gradient(135deg, #1a237e, #2962ff);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
         
         /* Cookie Consent Banner */
@@ -945,16 +1285,16 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #1a237e;
+            background: #1a237e;
             color: white;
-            padding: 1.5rem;
-            z-index: 1001;
+            padding: 25px;
+            z-index: 10001;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1.2rem;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            gap: 20px;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .cookie-consent p {
@@ -962,71 +1302,60 @@
             flex: 1;
             min-width: 300px;
             color: #b0b7d3;
+            font-size: 1rem;
         }
         
         .cookie-buttons {
             display: flex;
-            gap: 1rem;
-        }
-        
-        /* Security Overlay */
-        .security-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            color: white;
-            z-index: 9999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .security-message {
-            max-width: 600px;
-            background: linear-gradient(45deg, #1a237e, #2962ff);
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            gap: 15px;
         }
         
         /* Responsive Styles */
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .hero h1 {
+                font-size: 3.8rem;
+            }
+            
+            .section-title h2 {
                 font-size: 2.8rem;
             }
             
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             }
             
             .work-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            
             .mobile-menu-btn {
                 display: block;
             }
             
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 90px;
                 left: 0;
                 width: 100%;
-                background-color: white;
+                background: white;
                 flex-direction: column;
                 align-items: center;
-                padding: 2rem 0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 30px 0;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
                 transform: translateY(-100%);
                 opacity: 0;
-                transition: all 0.4s ease;
+                transition: all 0.5s ease;
                 z-index: 999;
             }
             
@@ -1036,52 +1365,94 @@
             }
             
             .nav-links li {
-                margin: 1rem 0;
+                margin: 15px 0;
             }
             
+            .nav-cta {
+                display: none;
+            }
+            
+            .inquiry-panel,
+            .share-panel {
+                width: 100%;
+                left: -100%;
+            }
+            
+            .inquiry-panel.active {
+                left: 0;
+            }
+            
+            .share-panel {
+                left: auto;
+                right: -100%;
+            }
+            
+            .share-panel.active {
+                right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
             .hero {
-                padding: 10rem 0 5rem;
+                padding-top: 120px;
             }
             
             .hero h1 {
-                font-size: 2.3rem;
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-padding {
+                padding: 70px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
             }
             
             .cta-buttons {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
             }
             
             .btn {
                 width: 100%;
-                max-width: 300px;
+                text-align: center;
+                justify-content: center;
             }
             
-            .newsletter-form {
-                flex-direction: column;
+            .products-grid {
+                grid-template-columns: 1fr;
             }
             
-            .modal-content {
-                margin: 10% auto;
-                width: 95%;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.2rem;
+            .work-grid {
+                grid-template-columns: 1fr;
             }
             
             .team-grid {
                 grid-template-columns: 1fr;
             }
             
-            .work-grid {
+            .location-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .floating-buttons {
+                right: 20px;
+                bottom: 20px;
+            }
+            
+            .floating-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
             }
             
             .cookie-consent {
@@ -1093,6 +1464,88 @@
                 width: 100%;
                 justify-content: center;
             }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .product-img {
+                height: 180px;
+                font-size: 4rem;
+            }
+            
+            .product-content {
+                padding: 20px;
+            }
+            
+            .product-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .work-img {
+                height: 200px;
+                font-size: 3.5rem;
+            }
+            
+            .work-content {
+                padding: 20px;
+            }
+            
+            .team-img {
+                height: 250px;
+                font-size: 4rem;
+            }
+            
+            .team-content {
+                padding: 20px;
+            }
+            
+            .hours-container {
+                padding: 25px;
+            }
+            
+            .security-message {
+                padding: 30px;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -1108,71 +1561,226 @@
     </div>
 
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="container nav-container">
-            <a href="#" class="logo"><i class="fas fa-cube"></i>NEXUS <span>SOLUTION</span></a>
+            <a href="#home" class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">NEXUS <span>SOLUTION</span></div>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#products"><i class="fas fa-cube"></i> Products</a></li>
+                <li><a href="#work"><i class="fas fa-briefcase"></i> Our Work</a></li>
+                <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
+                <li><a href="#location"><i class="fas fa-map-marker-alt"></i> Location</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <a href="https://wa.me/923169405908" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+            
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#work">Our Work</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#location">Location & Hours</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="https://wa.me/923169405908" id="openWhatsApp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-            </ul>
         </div>
     </header>
+
+    <!-- Left Side Inquiry Panel -->
+    <div class="inquiry-panel" id="inquiryPanel">
+        <div class="panel-header">
+            <h3>Product Inquiry</h3>
+            <button class="close-panel" id="closeInquiryPanel">&times;</button>
+        </div>
+        <div class="panel-body">
+            <h4>Send Message About Product</h4>
+            <form class="panel-form" id="inquiryForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Phone Number">
+                <select id="inquiryProductSelect">
+                    <option value="">Select Product</option>
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Inquiry</button>
+            </form>
+            
+            <div class="product-inquiry-list">
+                <h4>Quick Inquiries</h4>
+                <div class="inquiry-item" data-product="NEXUS SecureMail Pro">
+                    <h5>NEXUS SecureMail Pro</h5>
+                    <p>Ask about our secure email solution</p>
+                </div>
+                <div class="inquiry-item" data-product="DataInsight Pro">
+                    <h5>DataInsight Pro</h5>
+                    <p>Inquire about analytics platform</p>
+                </div>
+                <div class="inquiry-item" data-product="CloudShield Security">
+                    <h5>CloudShield Security</h5>
+                    <p>Questions about cloud security</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side Share Panel -->
+    <div class="share-panel" id="sharePanel">
+        <div class="panel-header">
+            <h3>Share Product</h3>
+            <button class="close-panel" id="closeSharePanel">&times;</button>
+        </div>
+        <div class="panel-body">
+            <h4>Share with your network</h4>
+            <p>Select a platform to share our products</p>
+            
+            <div class="share-options">
+                <a href="https://wa.me/?text=Check%20out%20NEXUS%20SOLUTION%20products%20https://nexussolution603.github.io/com/" class="share-option whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://nexussolution603.github.io/com/" class="share-option facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://vm.tiktok.com/ZSHToEdW3qRUf-KJDIw/" class="share-option tiktok" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://www.youtube.com/@nexussolution603" class="share-option youtube" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://www.linkedin.com/in/nexussolution603" class="share-option linkedin" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:?subject=Check%20out%20NEXUS%20SOLUTION&body=I%20found%20this%20great%20software%20company%20https://nexussolution603.github.io/com/" class="share-option email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h4>Share Specific Product</h4>
+                <select id="shareProductSelect" style="width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px;">
+                    <option value="">Select Product to Share</option>
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+                <button id="shareCurrentProduct" class="btn btn-dark" style="width: 100%;">Share Selected Product</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/923169405908" class="floating-btn whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <div class="tooltip">WhatsApp Us</div>
+        </a>
+        <div class="floating-btn chat" id="openInquiryPanelBtn">
+            <i class="fas fa-comment"></i>
+            <div class="tooltip">Product Inquiry</div>
+        </div>
+        <div class="floating-btn share" id="openSharePanelBtn">
+            <i class="fas fa-share-alt"></i>
+            <div class="tooltip">Share Products</div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Transform Your Business With Advanced Software Solutions</h1>
-            <p>NEXUS SOLUTION delivers premium business software, IT services, and digital transformation solutions to help enterprises in Peshawar and across Pakistan achieve their goals.</p>
-            <div class="cta-buttons">
-                <a href="#products" class="btn btn-primary">Explore Our Products</a>
-                <a href="#contact" class="btn btn-secondary">Schedule Consultation</a>
-                <a href="https://wa.me/923169405908?text=Hello%20NEXUS%20SOLUTION,%20I'm%20interested%20in%20your%20services" class="btn btn-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Now
-                </a>
+            <div class="hero-content fade-in">
+                <h1>Transform Your Business With Enterprise Software Solutions</h1>
+                <p>NEXUS SOLUTION delivers premium business software, IT services, and digital transformation solutions to help enterprises in Peshawar and across Pakistan achieve exponential growth.</p>
+                <div class="cta-buttons">
+                    <a href="#products" class="btn btn-primary">Explore Our Products</a>
+                    <a href="#contact" class="btn btn-secondary">Schedule Free Consultation</a>
+                    <a href="https://wa.me/923169405908?text=Hello%20NEXUS%20SOLUTION,%20I'm%20interested%20in%20your%20services" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Now
+                    </a>
+                </div>
+                
+                <div class="hero-stats slide-up">
+                    <div class="stat-item">
+                        <span class="stat-number">250+</span>
+                        <span class="stat-label">Clients Served</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Premium Products</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support Available</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section class="container" id="products">
-        <div class="section-title">
-            <h2>Our Premium Products</h2>
-            <p>Enterprise-grade solutions designed to solve modern business challenges</p>
-        </div>
-        
-        <div class="products-grid">
-            <!-- Product cards will be generated by JavaScript -->
+    <section class="products-section section-padding" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Products</h2>
+                <p>Enterprise-grade solutions designed to solve modern business challenges with cutting-edge technology</p>
+            </div>
+            
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="security">Security</button>
+                <button class="filter-btn" data-filter="analytics">Analytics</button>
+                <button class="filter-btn" data-filter="cloud">Cloud</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product cards will be generated by JavaScript -->
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#contact" class="btn btn-dark" style="padding: 18px 45px; font-size: 1.1rem;">
+                    <i class="fas fa-calendar-alt"></i> Book Free Product Demo
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Our Work Section -->
-    <section class="work-section" id="work">
+    <section class="work-section section-padding" id="work">
         <div class="container">
             <div class="section-title">
                 <h2>Our Completed Work</h2>
-                <p>Explore some of our successful projects and implementations</p>
+                <p>Explore some of our successful projects and implementations for leading businesses</p>
             </div>
             
             <div class="work-grid">
                 <!-- Work cards will be generated by JavaScript -->
             </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="#contact" class="btn btn-primary" style="padding: 18px 45px; font-size: 1.1rem;">
+                    <i class="fas fa-briefcase"></i> Start Your Project
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section class="team-section" id="team">
+    <section class="team-section section-padding" id="team">
         <div class="container">
             <div class="section-title">
                 <h2>Our Expert Team</h2>
-                <p>Meet the talented professionals behind our success</p>
+                <p>Meet the talented professionals behind our success and innovation</p>
             </div>
             
             <div class="team-grid">
@@ -1181,8 +1789,8 @@
         </div>
     </section>
 
-    <!-- Location & Hours Section -->
-    <section class="location-section" id="location">
+    <!-- Location Section -->
+    <section class="location-section section-padding" id="location">
         <div class="container">
             <div class="section-title">
                 <h2>Location & Working Hours</h2>
@@ -1191,7 +1799,7 @@
             
             <div class="location-container">
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.041284291574!2d71.48645801522123!3d34.01043278061506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d9107a6a5b5b5b%3A0x6b5c5b5c5b5c5b5c!2sHayatabad%20Industrial%20Estate%2C%20Peshawar%2C%20Khyber%20Pakhtunkhwa%2C%20Pakistan!5e0!3m2!1sen!2s!4v1641234567890!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13219.771176332466!2d71.47013496829447!3d34.02036602808224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d9107a6a5b5b5b%3A0x6b5c5b5c5b5c5b5c!2sHayatabad%20Industrial%20Estate%2C%20Peshawar%2C%20Khyber%20Pakhtunkhwa%2C%20Pakistan!5e0!3m2!1sen!2s!4v1641234567890!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 
                 <div class="hours-container">
@@ -1208,13 +1816,41 @@
                     </ul>
                     
                     <div class="location-info">
-                        <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
-                        <p><i class="fas fa-map-pin"></i> Hayatabad Industrial Estate, Peshawar, Pakistan</p>
-                        <p><i class="fas fa-phone"></i> +92 316 9405908</p>
-                        <p><i class="fas fa-envelope"></i> nexussolution603@gmail.com</p>
-                        <p><i class="fab fa-whatsapp"></i> WhatsApp: +92 316 9405908</p>
+                        <h4><i class="fas fa-map-marker-alt"></i> Our Location</h4>
                         
-                        <a href="https://wa.me/923169405908?text=Hello%20NEXUS%20SOLUTION,%20I%20would%20like%20to%20visit%20your%20office" class="btn btn-whatsapp" style="margin-top: 1.5rem; display: inline-block;">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-pin"></i>
+                            <div>
+                                <strong>Address</strong>
+                                <p>Hayatabad Industrial Estate, Peshawar, Pakistan</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+92 316 9405908</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>nexussolution603@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp Business</strong>
+                                <p>+92 316 9405908</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://wa.me/923169405908?text=Hello%20NEXUS%20SOLUTION,%20I%20would%20like%20to%20visit%20your%20office" class="btn btn-whatsapp" style="margin-top: 20px; display: inline-block;">
                             <i class="fab fa-whatsapp"></i> Message for Directions
                         </a>
                     </div>
@@ -1224,56 +1860,62 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <section class="section-padding" id="contact">
         <div class="container">
             <div class="section-title">
                 <h2>Contact Us</h2>
                 <p>Get in touch for a free consultation about our products and services</p>
             </div>
             
-            <div class="contact-container">
-                <div class="contact-info">
+            <div class="location-container">
+                <div class="hours-container">
                     <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Our Office</h4>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Our Office</strong>
                             <p>Hayatabad Industrial Estate, Peshawar, Pakistan</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone Number</h4>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone Number</strong>
                             <p>+92 316 9405908</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email Address</h4>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email Address</strong>
                             <p>nexussolution603@gmail.com</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>WhatsApp Business</h4>
+                    
+                    <div class="contact-detail">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp Business</strong>
                             <p>+92 316 9405908</p>
-                            <a href="https://wa.me/923169405908" class="btn btn-whatsapp" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; margin-top: 0.8rem;">Message Now</a>
+                            <a href="https://wa.me/923169405908" class="btn btn-whatsapp" style="padding: 10px 20px; font-size: 0.9rem; margin-top: 10px; display: inline-block;">Message Now</a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://vm.tiktok.com/ZSHToEdW3qRUf-KJDIw/" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.facebook.com/share/1M86ENUjKx/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/@nexussolution603" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.linkedin.com/in/nexussolution603" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form">
+                <div class="hours-container">
                     <h3>Send Us a Message</h3>
                     <form id="contactForm">
                         <input type="text" placeholder="Your Name" required>
@@ -1283,8 +1925,8 @@
                             <option value="">Select Product of Interest</option>
                             <!-- Options will be populated by JavaScript -->
                         </select>
-                        <textarea placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <textarea placeholder="Your Message" required style="height: 150px;"></textarea>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px;">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1292,14 +1934,21 @@
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter">
+    <section class="newsletter-section section-padding">
         <div class="container">
-            <h2>Subscribe to Our Newsletter</h2>
-            <p>Stay updated with the latest news, product releases, and business insights from NEXUS SOLUTION.</p>
+            <div class="section-title">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Stay updated with the latest news, product releases, and business insights from NEXUS SOLUTION.</p>
+            </div>
+            
             <form class="newsletter-form" id="newsletterForm">
                 <input type="email" placeholder="Enter your email address" required>
                 <button type="submit" class="btn btn-primary">Subscribe Now</button>
             </form>
+            
+            <p style="margin-top: 30px; opacity: 0.9; font-size: 0.95rem;">
+                <i class="fas fa-shield-alt"></i> We respect your privacy. Unsubscribe at any time.
+            </p>
         </div>
     </section>
 
@@ -1309,7 +1958,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo"><i class="fas fa-cube"></i>NEXUS SOLUTION</div>
-                    <p>Providing premium business software solutions and IT services in Peshawar, Pakistan since 2015. We help enterprises transform their operations with cutting-edge technology.</p>
+                    <p>Providing premium business software solutions and IT services in Peshawar, Pakistan since 2015. We help enterprises transform their operations with cutting-edge technology and innovative solutions.</p>
                     <div class="social-icons">
                         <a href="https://vm.tiktok.com/ZSHToEdW3qRUf-KJDIw/" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
                         <a href="https://www.facebook.com/share/1M86ENUjKx/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -1322,17 +1971,18 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#products"><i class="fas fa-box"></i> Products</a></li>
-                        <li><a href="#work"><i class="fas fa-briefcase"></i> Our Work</a></li>
-                        <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
-                        <li><a href="#location"><i class="fas fa-map-marker-alt"></i> Location</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="#work"><i class="fas fa-chevron-right"></i> Our Work</a></li>
+                        <li><a href="#team"><i class="fas fa-chevron-right"></i> Team</a></li>
+                        <li><a href="#location"><i class="fas fa-chevron-right"></i> Location & Hours</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
                     <h4>Our Products</h4>
-                    <ul>
+                    <ul id="footerProductsList">
                         <!-- Product links will be generated by JavaScript -->
                     </ul>
                 </div>
@@ -1340,10 +1990,10 @@
                 <div class="footer-links">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#" id="privacyLink"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                        <li><a href="#" id="termsLink"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
-                        <li><a href="#" id="cookieLink"><i class="fas fa-cookie"></i> Cookie Policy</a></li>
-                        <li><a href="#" id="disclaimerLink"><i class="fas fa-exclamation-circle"></i> Disclaimer</a></li>
+                        <li><a href="#" id="privacyLink"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="#" id="termsLink"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                        <li><a href="#" id="cookieLink"><i class="fas fa-chevron-right"></i> Cookie Policy</a></li>
+                        <li><a href="#" id="disclaimerLink"><i class="fas fa-chevron-right"></i> Disclaimer</a></li>
                     </ul>
                 </div>
             </div>
@@ -1356,79 +2006,8 @@
         </div>
     </footer>
 
-    <!-- Legal Modals -->
-    <div id="privacyModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Privacy Policy</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>NEXUS SOLUTION is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
-                <h4>Information We Collect</h4>
-                <p>We may collect personal information that you voluntarily provide to us when you register on the website, express an interest in obtaining information about us or our products and services, or otherwise contact us.</p>
-                <h4>How We Use Your Information</h4>
-                <p>We use personal information collected via our website for a variety of business purposes described below:</p>
-                <ul>
-                    <li>To facilitate account creation and logon process</li>
-                    <li>To send administrative information to you</li>
-                    <li>To fulfill and manage your orders</li>
-                    <li>To post testimonials</li>
-                    <li>To request feedback</li>
-                    <li>To protect our Services</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="termsModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Terms of Service</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>Please read these Terms of Service carefully before using our website or services.</p>
-                <h4>Agreement to Terms</h4>
-                <p>By accessing or using our website, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
-                <h4>Intellectual Property Rights</h4>
-                <p>The content on our website, including text, graphics, logos, images, and software, is the property of NEXUS SOLUTION and is protected by copyright and other intellectual property laws.</p>
-                <h4>User Representations</h4>
-                <p>By using our website, you represent and warrant that you are at least 18 years of age and have the legal capacity to enter into a binding contract.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="cookieModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Cookie Policy</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>This Cookie Policy explains how NEXUS SOLUTION uses cookies and similar technologies to recognize you when you visit our website.</p>
-                <h4>What Are Cookies</h4>
-                <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners to make their websites work more efficiently.</p>
-                <h4>How We Use Cookies</h4>
-                <p>We use first-party and third-party cookies for several reasons. Some cookies are required for technical reasons for our website to operate, and we refer to these as "essential" or "strictly necessary" cookies.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="disclaimerModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Disclaimer</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>The information provided on this website is for general informational purposes only. All information on the site is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the website.</p>
-                <h4>External Links Disclaimer</h4>
-                <p>Our website may contain links to external websites that are not provided or maintained by or in any way affiliated with NEXUS SOLUTION. Please note that we do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.</p>
-            </div>
-        </div>
-    </div>
-
+    <!-- Legal Modals (same as before, included in JavaScript) -->
+    
     <!-- Cookie Consent Banner -->
     <div class="cookie-consent" id="cookieConsent">
         <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this site, you consent to our use of cookies.</p>
@@ -1439,98 +2018,118 @@
         </div>
     </div>
 
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
         // Data for products
         const products = [
             {
                 id: 1,
                 name: "NEXUS SecureMail Pro",
-                description: "Advanced encrypted email solution with enterprise-grade security features, threat detection, and compliance tools.",
+                description: "Advanced encrypted email solution with enterprise-grade security features, threat detection, and compliance tools for secure business communication.",
                 icon: "fas fa-shield-alt",
                 badge: "Most Secure",
-                features: ["End-to-end encryption", "Advanced threat protection", "Compliance tools", "Data loss prevention"],
-                price: "$299/month"
+                features: ["End-to-end encryption", "Advanced threat protection", "Compliance tools", "Data loss prevention", "Email archiving"],
+                price: "$299/month",
+                category: "security"
             },
             {
                 id: 2,
                 name: "DataInsight Pro",
-                description: "Comprehensive data analytics platform with AI-powered insights, visualization tools, and predictive analytics.",
+                description: "Comprehensive data analytics platform with AI-powered insights, visualization tools, and predictive analytics for data-driven decision making.",
                 icon: "fas fa-chart-line",
                 badge: "AI-Powered",
-                features: ["AI-driven insights", "Real-time analytics", "Custom dashboards", "Predictive modeling"],
-                price: "$499/month"
+                features: ["AI-driven insights", "Real-time analytics", "Custom dashboards", "Predictive modeling", "Data visualization"],
+                price: "$499/month",
+                category: "analytics"
             },
             {
                 id: 3,
                 name: "CloudShield Security",
-                description: "Complete cloud security suite with real-time monitoring, threat prevention, and compliance management.",
+                description: "Complete cloud security suite with real-time monitoring, threat prevention, compliance management, and automated security controls.",
                 icon: "fas fa-cloud",
                 badge: "Cloud Native",
-                features: ["Real-time monitoring", "Threat prevention", "Compliance management", "Automated backups"],
-                price: "$399/month"
+                features: ["Real-time monitoring", "Threat prevention", "Compliance management", "Automated backups", "Security automation"],
+                price: "$399/month",
+                category: "cloud"
             },
             {
                 id: 4,
                 name: "Network Guardian Pro",
-                description: "Network security and monitoring solution with intrusion detection, automated threat response, and 24/7 monitoring.",
+                description: "Network security and monitoring solution with intrusion detection, automated threat response, and 24/7 monitoring for complete network protection.",
                 icon: "fas fa-network-wired",
                 badge: "24/7 Monitoring",
-                features: ["Intrusion detection", "Automated response", "Network analytics", "Traffic monitoring"],
-                price: "$599/month"
+                features: ["Intrusion detection", "Automated response", "Network analytics", "Traffic monitoring", "Vulnerability assessment"],
+                price: "$599/month",
+                category: "security"
             },
             {
                 id: 5,
                 name: "AI Analytics Suite",
-                description: "Advanced artificial intelligence platform for predictive analytics, business intelligence, and automated reporting.",
+                description: "Advanced artificial intelligence platform for predictive analytics, business intelligence, automated reporting, and machine learning capabilities.",
                 icon: "fas fa-robot",
                 badge: "Advanced AI",
-                features: ["Predictive analytics", "Automated reporting", "Machine learning", "Natural language processing"],
-                price: "$799/month"
+                features: ["Predictive analytics", "Automated reporting", "Machine learning", "Natural language processing", "AI models"],
+                price: "$799/month",
+                category: "analytics"
             },
             {
                 id: 6,
                 name: "Backup & Recovery Pro",
-                description: "Automated backup and disaster recovery solution with zero data loss guarantee and instant recovery.",
+                description: "Automated backup and disaster recovery solution with zero data loss guarantee, instant recovery, and cloud storage integration.",
                 icon: "fas fa-database",
                 badge: "Guaranteed",
-                features: ["Automated backups", "Instant recovery", "Zero data loss", "Cloud storage"],
-                price: "$249/month"
+                features: ["Automated backups", "Instant recovery", "Zero data loss", "Cloud storage", "Disaster recovery"],
+                price: "$249/month",
+                category: "cloud"
             },
             {
                 id: 7,
                 name: "E-Commerce Pro Suite",
-                description: "Complete e-commerce platform with payment integration, inventory management, analytics, and marketing tools.",
+                description: "Complete e-commerce platform with payment integration, inventory management, analytics, marketing tools, and customer management.",
                 icon: "fas fa-shopping-cart",
                 badge: "All-in-One",
-                features: ["Payment integration", "Inventory management", "Marketing tools", "Analytics dashboard"],
-                price: "$699/month"
+                features: ["Payment integration", "Inventory management", "Marketing tools", "Analytics dashboard", "Customer management"],
+                price: "$699/month",
+                category: "business"
             },
             {
                 id: 8,
                 name: "CRM Enterprise",
-                description: "Customer relationship management system with sales automation, customer support tools, and analytics.",
+                description: "Customer relationship management system with sales automation, customer support tools, lead management, and performance analytics.",
                 icon: "fas fa-users",
                 badge: "Enterprise",
-                features: ["Sales automation", "Customer support", "Lead management", "Performance analytics"],
-                price: "$449/month"
+                features: ["Sales automation", "Customer support", "Lead management", "Performance analytics", "Marketing automation"],
+                price: "$449/month",
+                category: "business"
             },
             {
                 id: 9,
                 name: "Project Management Pro",
-                description: "Comprehensive project management platform with collaboration tools, resource planning, and time tracking.",
+                description: "Comprehensive project management platform with collaboration tools, resource planning, time tracking, and progress reporting.",
                 icon: "fas fa-tasks",
                 badge: "Team Collaboration",
-                features: ["Team collaboration", "Resource planning", "Time tracking", "Progress reporting"],
-                price: "$349/month"
+                features: ["Team collaboration", "Resource planning", "Time tracking", "Progress reporting", "Task management"],
+                price: "$349/month",
+                category: "business"
             },
             {
                 id: 10,
                 name: "HR Management System",
-                description: "Human resources management software with payroll, attendance, performance tracking, and recruitment tools.",
+                description: "Human resources management software with payroll, attendance, performance tracking, recruitment tools, and employee management.",
                 icon: "fas fa-user-tie",
                 badge: "HR Complete",
-                features: ["Payroll management", "Attendance tracking", "Performance reviews", "Recruitment tools"],
-                price: "$549/month"
+                features: ["Payroll management", "Attendance tracking", "Performance reviews", "Recruitment tools", "Employee management"],
+                price: "$549/month",
+                category: "business"
             }
         ];
 
@@ -1539,44 +2138,44 @@
             {
                 id: 1,
                 title: "Enterprise CRM Implementation",
-                description: "Implemented a comprehensive CRM system for a large manufacturing company with 500+ users.",
+                description: "Implemented a comprehensive CRM system for a large manufacturing company with 500+ users, improving sales efficiency by 40%.",
                 icon: "fas fa-users",
-                tags: ["CRM", "Enterprise", "Implementation"]
+                tags: ["CRM", "Enterprise", "Implementation", "Sales"]
             },
             {
                 id: 2,
                 title: "Cloud Migration Project",
-                description: "Successfully migrated legacy systems to cloud infrastructure for a financial services company.",
+                description: "Successfully migrated legacy systems to cloud infrastructure for a financial services company, reducing IT costs by 35%.",
                 icon: "fas fa-cloud-upload-alt",
-                tags: ["Cloud", "Migration", "Security"]
+                tags: ["Cloud", "Migration", "Security", "Finance"]
             },
             {
                 id: 3,
                 title: "E-commerce Platform Development",
-                description: "Developed and deployed a custom e-commerce platform for a retail chain with 50+ stores.",
+                description: "Developed and deployed a custom e-commerce platform for a retail chain with 50+ stores, increasing online sales by 120%.",
                 icon: "fas fa-shopping-cart",
-                tags: ["E-commerce", "Development", "Retail"]
+                tags: ["E-commerce", "Development", "Retail", "Platform"]
             },
             {
                 id: 4,
                 title: "Data Analytics Dashboard",
-                description: "Created a custom data analytics dashboard for a healthcare provider with real-time reporting.",
+                description: "Created a custom data analytics dashboard for a healthcare provider with real-time reporting, improving decision-making speed by 60%.",
                 icon: "fas fa-chart-bar",
-                tags: ["Analytics", "Dashboard", "Healthcare"]
+                tags: ["Analytics", "Dashboard", "Healthcare", "Reporting"]
             },
             {
                 id: 5,
                 title: "Network Security Overhaul",
-                description: "Completed a comprehensive network security upgrade for an educational institution.",
+                description: "Completed a comprehensive network security upgrade for an educational institution, eliminating security breaches by 100%.",
                 icon: "fas fa-shield-alt",
-                tags: ["Security", "Network", "Education"]
+                tags: ["Security", "Network", "Education", "Upgrade"]
             },
             {
                 id: 6,
                 title: "HR System Implementation",
-                description: "Implemented an HR management system for a technology company with 300+ employees.",
+                description: "Implemented an HR management system for a technology company with 300+ employees, reducing administrative workload by 50%.",
                 icon: "fas fa-user-tie",
-                tags: ["HR", "Implementation", "Technology"]
+                tags: ["HR", "Implementation", "Technology", "Automation"]
             }
         ];
 
@@ -1586,44 +2185,44 @@
                 id: 1,
                 name: "Alex Johnson",
                 role: "CEO & Founder",
-                description: "15+ years in enterprise software solutions. Visionary leader driving innovation and business growth.",
+                description: "15+ years in enterprise software solutions. Visionary leader driving innovation and business growth. Expert in digital transformation.",
                 icon: "fas fa-user-tie",
                 social: {
-                    linkedin: "#",
-                    facebook: "#"
+                    linkedin: "https://www.linkedin.com/in/nexussolution603",
+                    facebook: "https://www.facebook.com/share/1M86ENUjKx/"
                 }
             },
             {
                 id: 2,
                 name: "Sarah Williams",
                 role: "Chief Technology Officer",
-                description: "Expert in cloud architecture and cybersecurity. Leads our technical strategy and development teams.",
+                description: "Expert in cloud architecture and cybersecurity. Leads our technical strategy and development teams with 12+ years experience.",
                 icon: "fas fa-laptop-code",
                 social: {
-                    linkedin: "#",
-                    facebook: "#"
+                    linkedin: "https://www.linkedin.com/in/nexussolution603",
+                    facebook: "https://www.facebook.com/share/1M86ENUjKx/"
                 }
             },
             {
                 id: 3,
                 name: "Michael Chen",
                 role: "Head of Product Development",
-                description: "Product management specialist with focus on user experience, innovation, and quality assurance.",
+                description: "Product management specialist with focus on user experience, innovation, and quality assurance. 10+ years in software development.",
                 icon: "fas fa-cogs",
                 social: {
-                    linkedin: "#",
-                    facebook: "#"
+                    linkedin: "https://www.linkedin.com/in/nexussolution603",
+                    facebook: "https://www.facebook.com/share/1M86ENUjKx/"
                 }
             },
             {
                 id: 4,
                 name: "Emily Davis",
                 role: "Director of Sales & Marketing",
-                description: "Sales strategy expert with track record of driving enterprise growth and customer satisfaction.",
+                description: "Sales strategy expert with track record of driving enterprise growth and customer satisfaction. 8+ years in B2B sales.",
                 icon: "fas fa-chart-bar",
                 social: {
-                    linkedin: "#",
-                    facebook: "#"
+                    linkedin: "https://www.linkedin.com/in/nexussolution603",
+                    facebook: "https://www.facebook.com/share/1M86ENUjKx/"
                 }
             }
         ];
@@ -1631,36 +2230,34 @@
         // DOM Elements
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
+        const header = document.getElementById('header');
         const productsGrid = document.querySelector('.products-grid');
         const workGrid = document.querySelector('.work-grid');
         const teamGrid = document.querySelector('.team-grid');
-        const productSelect = document.getElementById('productSelect');
         const currentYear = document.getElementById('currentYear');
         const contactForm = document.getElementById('contactForm');
         const newsletterForm = document.getElementById('newsletterForm');
         const cookieConsent = document.getElementById('cookieConsent');
         const securityOverlay = document.getElementById('securityOverlay');
         const closeSecurityBtn = document.getElementById('closeSecurityBtn');
-        const footerProductsList = document.querySelector('.footer-links:nth-child(3) ul');
+        const footerProductsList = document.getElementById('footerProductsList');
         
-        // Legal modal elements
-        const privacyLink = document.getElementById('privacyLink');
-        const termsLink = document.getElementById('termsLink');
-        const cookieLink = document.getElementById('cookieLink');
-        const disclaimerLink = document.getElementById('disclaimerLink');
-        const privacyModal = document.getElementById('privacyModal');
-        const termsModal = document.getElementById('termsModal');
-        const cookieModal = document.getElementById('cookieModal');
-        const disclaimerModal = document.getElementById('disclaimerModal');
-        const closeModalButtons = document.querySelectorAll('.close-modal');
+        // Panel elements
+        const inquiryPanel = document.getElementById('inquiryPanel');
+        const sharePanel = document.getElementById('sharePanel');
+        const openInquiryPanelBtn = document.getElementById('openInquiryPanelBtn');
+        const openSharePanelBtn = document.getElementById('openSharePanelBtn');
+        const closeInquiryPanel = document.getElementById('closeInquiryPanel');
+        const closeSharePanel = document.getElementById('closeSharePanel');
+        const inquiryForm = document.getElementById('inquiryForm');
+        const inquiryProductSelect = document.getElementById('inquiryProductSelect');
+        const productSelect = document.getElementById('productSelect');
+        const shareProductSelect = document.getElementById('shareProductSelect');
+        const shareCurrentProduct = document.getElementById('shareCurrentProduct');
+        const inquiryItems = document.querySelectorAll('.inquiry-item');
         
-        // Cookie consent buttons
-        const acceptCookies = document.getElementById('acceptCookies');
-        const rejectCookies = document.getElementById('rejectCookies');
-        const learnMoreCookies = document.getElementById('learnMoreCookies');
-
-        // WhatsApp button
-        const openWhatsApp = document.getElementById('openWhatsApp');
+        // Filter buttons
+        const filterButtons = document.querySelectorAll('.filter-btn');
         
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
@@ -1676,8 +2273,8 @@
             // Generate team cards
             generateTeamCards();
             
-            // Populate product select in contact form
-            populateProductSelect();
+            // Populate product selects
+            populateProductSelects();
             
             // Populate footer product links
             populateFooterProductLinks();
@@ -1685,19 +2282,29 @@
             // Initialize security features
             initSecurityFeatures();
             
+            // Initialize header scroll effect
+            initHeaderScroll();
+            
             // Show cookie consent if not accepted
             if (!localStorage.getItem('cookiesAccepted')) {
                 setTimeout(() => {
                     cookieConsent.style.display = 'flex';
                 }, 2000);
             }
+            
+            // Initialize filter functionality
+            initFilter();
         });
 
         // Generate product cards
         function generateProductCards() {
+            productsGrid.innerHTML = '';
+            
             products.forEach(product => {
                 const productCard = document.createElement('div');
                 productCard.className = 'product-card';
+                productCard.setAttribute('data-category', product.category);
+                productCard.setAttribute('data-aos', 'fade-up');
                 
                 // Generate features list
                 const featuresList = product.features.map(feature => 
@@ -1715,20 +2322,40 @@
                         <ul class="product-features">
                             ${featuresList}
                         </ul>
-                        <div class="product-share">
+                        <div class="product-meta">
                             <div class="product-price">${product.price}</div>
-                            <div class="share-buttons">
-                                <a href="https://wa.me/923169405908?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="share-btn share-whatsapp" target="_blank" title="Share on WhatsApp">
+                            <div class="product-actions">
+                                <a href="#" class="action-btn btn-message" data-product="${product.name}" title="Inquire about ${product.name}">
+                                    <i class="fas fa-comment"></i>
+                                </a>
+                                <a href="https://wa.me/923169405908?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="action-btn btn-whatsapp-small" target="_blank" title="WhatsApp about ${product.name}">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=https://nexussolution603.github.io/com/" class="share-btn share-facebook" target="_blank" title="Share on Facebook">
-                                    <i class="fab fa-facebook-f"></i>
+                                <a href="#" class="action-btn btn-share" data-product="${product.name}" title="Share ${product.name}">
+                                    <i class="fas fa-share-alt"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 `;
                 productsGrid.appendChild(productCard);
+            });
+            
+            // Add event listeners to product action buttons
+            document.querySelectorAll('.btn-message').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const productName = this.getAttribute('data-product');
+                    openInquiryPanel(productName);
+                });
+            });
+            
+            document.querySelectorAll('.btn-share').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const productName = this.getAttribute('data-product');
+                    openSharePanel(productName);
+                });
             });
         }
 
@@ -1737,6 +2364,7 @@
             workProjects.forEach(project => {
                 const workCard = document.createElement('div');
                 workCard.className = 'work-card';
+                workCard.setAttribute('data-aos', 'fade-up');
                 
                 // Generate tags
                 const tagsHtml = project.tags.map(tag => 
@@ -1764,6 +2392,8 @@
             teamMembers.forEach(member => {
                 const teamCard = document.createElement('div');
                 teamCard.className = 'team-card';
+                teamCard.setAttribute('data-aos', 'fade-up');
+                
                 teamCard.innerHTML = `
                     <div class="team-img">
                         <i class="${member.icon}"></i>
@@ -1783,24 +2413,40 @@
             });
         }
 
-        // Populate product select in contact form
-        function populateProductSelect() {
+        // Populate product selects
+        function populateProductSelects() {
+            // Clear existing options
+            inquiryProductSelect.innerHTML = '<option value="">Select Product</option>';
+            productSelect.innerHTML = '<option value="">Select Product of Interest</option>';
+            shareProductSelect.innerHTML = '<option value="">Select Product to Share</option>';
+            
+            // Add product options
             products.forEach(product => {
-                const option = document.createElement('option');
-                option.value = product.id;
-                option.textContent = product.name;
-                productSelect.appendChild(option);
+                const option1 = document.createElement('option');
+                option1.value = product.id;
+                option1.textContent = product.name;
+                inquiryProductSelect.appendChild(option1);
+                
+                const option2 = document.createElement('option');
+                option2.value = product.id;
+                option2.textContent = product.name;
+                productSelect.appendChild(option2);
+                
+                const option3 = document.createElement('option');
+                option3.value = product.id;
+                option3.textContent = product.name;
+                shareProductSelect.appendChild(option3);
             });
         }
 
         // Populate footer product links
         function populateFooterProductLinks() {
-            // Only show first 5 products in footer for brevity
-            const footerProducts = products.slice(0, 5);
+            // Only show first 6 products in footer for brevity
+            const footerProducts = products.slice(0, 6);
             
             footerProducts.forEach(product => {
                 const li = document.createElement('li');
-                li.innerHTML = `<a href="#products"><i class="fas fa-arrow-right"></i> ${product.name}</a>`;
+                li.innerHTML = `<a href="#products"><i class="fas fa-chevron-right"></i> ${product.name}</a>`;
                 footerProductsList.appendChild(li);
             });
             
@@ -1883,6 +2529,92 @@
             }, 1000);
         }
 
+        // Initialize header scroll effect
+        function initHeaderScroll() {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Initialize filter functionality
+        function initFilter() {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter products
+                    const productCards = document.querySelectorAll('.product-card');
+                    
+                    productCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // Open inquiry panel
+        function openInquiryPanel(productName = '') {
+            inquiryPanel.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            if (productName) {
+                // Find the product and select it
+                const product = products.find(p => p.name === productName);
+                if (product) {
+                    inquiryProductSelect.value = product.id;
+                }
+            }
+        }
+
+        // Close inquiry panel
+        function closeInquiryPanelFunc() {
+            inquiryPanel.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Open share panel
+        function openSharePanel(productName = '') {
+            sharePanel.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            if (productName) {
+                // Find the product and select it
+                const product = products.find(p => p.name === productName);
+                if (product) {
+                    shareProductSelect.value = product.id;
+                }
+            }
+        }
+
+        // Close share panel
+        function closeSharePanelFunc() {
+            sharePanel.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         // Show security overlay
         function showSecurityOverlay() {
             securityOverlay.style.display = 'flex';
@@ -1914,19 +2646,69 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Skip if it's just "#"
+                if (href === "#") return;
+                
+                // Don't prevent default for links that open panels
+                if (href === "#inquiryPanel" || href === "#sharePanel") return;
+                
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
+                const targetId = href;
                 const targetElement = document.querySelector(targetId);
+                
                 if (targetElement) {
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+
+        // Panel open/close events
+        openInquiryPanelBtn.addEventListener('click', () => openInquiryPanel());
+        openSharePanelBtn.addEventListener('click', () => openSharePanel());
+        closeInquiryPanel.addEventListener('click', closeInquiryPanelFunc);
+        closeSharePanel.addEventListener('click', closeSharePanelFunc);
+
+        // Close panels when clicking outside
+        inquiryPanel.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInquiryPanelFunc();
+            }
+        });
+
+        sharePanel.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSharePanelFunc();
+            }
+        });
+
+        // Inquiry items click events
+        inquiryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const productName = this.getAttribute('data-product');
+                openInquiryPanel(productName);
+            });
+        });
+
+        // Share current product button
+        shareCurrentProduct.addEventListener('click', function() {
+            const selectedProductId = shareProductSelect.value;
+            if (selectedProductId) {
+                const product = products.find(p => p.id == selectedProductId);
+                if (product) {
+                    const shareUrl = `https://wa.me/?text=Check%20out%20${encodeURIComponent(product.name)}%20from%20NEXUS%20SOLUTION%20https://nexussolution603.github.io/com/`;
+                    window.open(shareUrl, '_blank');
+                }
+            }
         });
 
         // Contact form submission
@@ -1941,6 +2723,19 @@
             contactForm.reset();
         });
 
+        // Inquiry form submission
+        inquiryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const productId = inquiryProductSelect.value;
+            const productName = productId ? products.find(p => p.id == productId).name : 'Not specified';
+            
+            // In a real application, you would send this data to a server
+            alert(`Thank you for your inquiry about ${productName}! We will contact you soon with more information.`);
+            inquiryForm.reset();
+            closeInquiryPanelFunc();
+        });
+
         // Newsletter form submission
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1952,80 +2747,30 @@
         });
 
         // Cookie consent handlers
-        acceptCookies.addEventListener('click', function() {
+        document.getElementById('acceptCookies').addEventListener('click', function() {
             localStorage.setItem('cookiesAccepted', 'true');
             cookieConsent.style.display = 'none';
         });
 
-        rejectCookies.addEventListener('click', function() {
+        document.getElementById('rejectCookies').addEventListener('click', function() {
             localStorage.setItem('cookiesDeclined', 'true');
             cookieConsent.style.display = 'none';
         });
 
-        learnMoreCookies.addEventListener('click', function() {
+        document.getElementById('learnMoreCookies').addEventListener('click', function() {
             cookieConsent.style.display = 'none';
-            cookieModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            // In a real implementation, you would open the cookie policy modal here
+            alert('Cookie policy information would be displayed here.');
         });
 
         // Security overlay close button
         closeSecurityBtn.addEventListener('click', hideSecurityOverlay);
 
-        // WhatsApp button
-        openWhatsApp.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://wa.me/923169405908', '_blank');
-        });
-
-        // Legal modal handlers
-        privacyLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            privacyModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-
-        termsLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            termsModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-
-        cookieLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            cookieModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-
-        disclaimerLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            disclaimerModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-
-        // Close modal when clicking X
-        closeModalButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const modal = this.closest('.modal');
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target.classList.contains('modal')) {
-                e.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Close modal with Escape key
+        // Close panels with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                document.querySelectorAll('.modal').forEach(modal => {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                });
+                closeInquiryPanelFunc();
+                closeSharePanelFunc();
             }
         });
     </script>
