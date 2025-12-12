@@ -68,6 +68,10 @@
             padding: 0;
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         html {
@@ -81,6 +85,38 @@
             background-color: #f8f9fa;
             overflow-x: hidden;
             position: relative;
+        }
+        
+        /* Security Overlay */
+        #security-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            padding: 20px;
+            text-align: center;
+            display: none;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Security Protection */
+        .security-protection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background: transparent;
         }
         
         /* Header & Navigation */
@@ -136,7 +172,7 @@
             margin-top: -5px;
         }
         
-        /* Desktop Navigation */
+        /* Desktop Navigation - FIXED FOR DROPDOWN */
         .desktop-nav {
             display: block;
         }
@@ -168,7 +204,7 @@
             background: rgba(26, 35, 126, 0.05);
         }
         
-        /* Dropdown Styles */
+        /* Dropdown Styles - FIXED FOR HOVER */
         .dropdown-content {
             position: absolute;
             background: white;
@@ -183,12 +219,14 @@
             padding: 10px 0;
             top: 100%;
             left: 0;
+            pointer-events: none;
         }
         
         .dropdown:hover .dropdown-content {
             opacity: 1;
             visibility: visible;
             transform: translateY(5px);
+            pointer-events: auto;
         }
         
         .dropdown-content a {
@@ -868,6 +906,7 @@
             background: #1a237e;
             color: white;
             padding: 60px 0 30px;
+            position: relative;
         }
         
         .footer-grid {
@@ -991,6 +1030,7 @@
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #ccc;
             font-size: 14px;
+            position: relative;
         }
         
         .footer-bottom a {
@@ -1002,6 +1042,18 @@
         .footer-bottom a:hover {
             color: white;
             text-decoration: underline;
+        }
+        
+        /* Hidden Link in Footer */
+        .hidden-website-link {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            opacity: 0;
+            z-index: 10;
+            cursor: pointer;
         }
         
         /* WhatsApp Floating Button */
@@ -1308,6 +1360,17 @@
     </style>
 </head>
 <body>
+    <!-- Security Overlay -->
+    <div id="security-overlay">
+        <i class="fas fa-shield-alt fa-4x" style="margin-bottom: 20px;"></i>
+        <h2>Security Protection Active</h2>
+        <p>This website is protected against unauthorized copying and distribution.</p>
+        <button id="close-security" style="margin-top: 20px; padding: 10px 20px; background: #1a237e; color: white; border: none; border-radius: 5px; cursor: pointer;">I Understand</button>
+    </div>
+    
+    <!-- Security Protection Layer -->
+    <div class="security-protection" id="security-protection"></div>
+    
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/923169405908?text=Hello%20NEXUS%20SOLUTION%20603,%20I%20need%20information%20about%20your%20services" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
@@ -1327,7 +1390,7 @@
                 <div class="logo-bottom">SOLUTION 603</div>
             </a>
             
-            <!-- Desktop Navigation -->
+            <!-- Desktop Navigation - DROPDOWN FIXED -->
             <nav class="desktop-nav">
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
@@ -1956,6 +2019,9 @@
     
     <!-- Footer -->
     <footer>
+        <!-- Hidden Website Link -->
+        <a href="https://nexussolution603.github.io/com/" class="hidden-website-link" target="_blank" rel="noopener noreferrer"></a>
+        
         <div class="container">
             <div class="footer-grid">
                 <div>
@@ -2040,6 +2106,66 @@
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
+        // ========== SECURITY PROTECTION ==========
+        const securityOverlay = document.getElementById('security-overlay');
+        const closeSecurity = document.getElementById('close-security');
+        const securityProtection = document.getElementById('security-protection');
+        
+        // Disable right-click
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            securityOverlay.style.display = 'flex';
+        });
+        
+        // Disable text selection
+        document.addEventListener('selectstart', (e) => {
+            e.preventDefault();
+        });
+        
+        // Disable copy
+        document.addEventListener('copy', (e) => {
+            e.preventDefault();
+            securityOverlay.style.display = 'flex';
+        });
+        
+        // Disable cut
+        document.addEventListener('cut', (e) => {
+            e.preventDefault();
+            securityOverlay.style.display = 'flex';
+        });
+        
+        // Disable paste
+        document.addEventListener('paste', (e) => {
+            e.preventDefault();
+            securityOverlay.style.display = 'flex';
+        });
+        
+        // Detect developer tools
+        const devtools = /./;
+        devtools.toString = function() {
+            securityOverlay.style.display = 'flex';
+            return '';
+        };
+        
+        console.log('%c', devtools);
+        
+        // Detect keyboard shortcuts for dev tools
+        document.addEventListener('keydown', (e) => {
+            // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if(e.keyCode === 123 || 
+               (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+               (e.ctrlKey && e.keyCode === 85)) {
+                e.preventDefault();
+                securityOverlay.style.display = 'flex';
+            }
+        });
+        
+        // Close security overlay
+        closeSecurity.addEventListener('click', () => {
+            securityOverlay.style.display = 'none';
+        });
+        
+        // ========== HEADER DROPDOWN FIX ==========
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -2058,7 +2184,7 @@
             }
         });
         
-        // Mobile Dropdown Toggle
+        // Mobile Dropdown Toggle - FIXED
         document.querySelectorAll('.mobile-dropdown > a').forEach(dropdown => {
             dropdown.addEventListener('click', function(e) {
                 if (window.innerWidth <= 992) {
@@ -2113,6 +2239,7 @@
             });
         });
         
+        // ========== SMOOTH SCROLLING ==========
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -2167,6 +2294,7 @@
             });
         });
         
+        // ========== CONTACT FORM ==========
         // Contact Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -2188,6 +2316,7 @@
             this.reset();
         });
         
+        // ========== ANIMATIONS ==========
         // Fade in animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
         
@@ -2213,6 +2342,60 @@
         window.addEventListener('scroll', fadeInOnScroll);
         window.addEventListener('load', fadeInOnScroll);
         fadeInOnScroll();
+        
+        // ========== HIDDEN WEBSITE LINK ==========
+        // The hidden link is already in the footer and will open when clicked
+        // It's completely transparent but covers the footer bottom area
+        
+        // ========== RESOURCE VIEW PROTECTION ==========
+        // Prevent viewing page source via view-source: protocol
+        if (window.location.protocol === 'view-source:') {
+            window.location.href = window.location.href.replace('view-source:', '');
+        }
+        
+        // Disable drag and drop for images
+        document.querySelectorAll('img').forEach(img => {
+            img.setAttribute('draggable', 'false');
+            img.style.pointerEvents = 'none';
+        });
+        
+        // Add watermark protection
+        const watermark = document.createElement('div');
+        watermark.innerHTML = 'NEXUS SOLUTION 603';
+        watermark.style.cssText = `
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            color: rgba(0,0,0,0.1);
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 9999;
+            user-select: none;
+        `;
+        document.body.appendChild(watermark);
+        
+        // Add more security layers
+        setInterval(() => {
+            // Check if page is being inspected
+            const startTime = new Date().getTime();
+            debugger;
+            const endTime = new Date().getTime();
+            
+            if (endTime - startTime > 100) {
+                securityOverlay.style.display = 'flex';
+            }
+        }, 1000);
+        
+        // Block iframe embedding
+        if (window.top !== window.self) {
+            window.top.location = window.self.location;
+        }
+        
+        // Block printing
+        window.addEventListener('beforeprint', (e) => {
+            e.preventDefault();
+            securityOverlay.style.display = 'flex';
+        });
     </script>
 </body>
 </html>
