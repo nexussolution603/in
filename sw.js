@@ -3,13 +3,13 @@ const CACHE_NAME = 'nexus-solution-v1.0';
 
 // Files to cache for offline use
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png',
-  '/sw.js'
+  
+  'index.html',
+  'style.css',
+  'manifest.json',
+  'icon-192.png',
+  'icon-512.png',
+  'sw.js'
 ];
 
 // Install event - cache files
