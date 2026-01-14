@@ -1,4 +1,4 @@
-Ko<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"> 
@@ -2929,6 +2929,65 @@ Ko<!DOCTYPE html>
     </script>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Button style */
+.download-btn {
+    background-color: #007BFF; /* blue */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<!-- Button -->
+<button class="download-btn" id="downloadBtn">Download App</button>
+
+<script>
+// File URLs (change these to your actual file paths)
+const filesToDownload = [
+    'manifest.json',
+    'ws.js'
+];
+
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    filesToDownload.forEach(file => {
+        const link = document.createElement('a');
+        link.href = file;
+        link.download = file.split('/').pop();
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+    alert('Files are downloading!');
+});
+                                                        </script>
     
 </body>
 </html>
