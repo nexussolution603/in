@@ -6,8 +6,15 @@
     <link rel="manifest" href="manifest.json">
     <title>NEXUS SOLUTION 603 - Premium IT Services & Digital Solutions</title>
     
+    <!-- ========== SECURITY META TAGS ========== -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://maps.googleapis.com https://*.google.com https://*.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://images.unsplash.com https://*.google.com https://*.googleapis.com https://*.ggpht.com; connect-src 'self' https://api.web3forms.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="clipboard-read=(), clipboard-write=()">
+    
     <!-- ========== SEO META TAGS ========== -->
-    <!-- Primary Meta Tags -->
     <meta name="title" content="NEXUS SOLUTION 603 - Premium IT Services Pakistan">
     <meta name="description" content="Premium IT services, software development, cybersecurity, cloud solutions, web development, mobile apps, and digital transformation solutions in Peshawar, Pakistan.">
     <meta name="keywords" content="IT services Pakistan, software development Peshawar, cybersecurity solutions, cloud computing Pakistan, web development, mobile app development, digital transformation, IT consulting, NEXUS SOLUTION 603, premium software solutions">
@@ -89,6 +96,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://api.web3forms.com">
     
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -96,6 +104,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     
     <style>
+        /* Security CSS to prevent copy */
+        * {
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
+        
+        input, textarea, select {
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+            user-select: text !important;
+        }
+        
         /* Reset & Base Styles */
         * {
             margin: 0;
@@ -847,6 +871,7 @@
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             border-top: 4px solid #1a237e;
+            position: relative;
         }
         
         .form-group {
@@ -874,6 +899,53 @@
             outline: none;
             border-color: #1a237e;
             box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+        }
+        
+        /* Form Status Messages */
+        .form-status {
+            display: none;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-status.success {
+            display: block;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .form-status.error {
+            display: block;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .form-status.loading {
+            display: block;
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        /* Loading Animation */
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1a237e;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         /* Map Section */
@@ -1192,6 +1264,18 @@
             display: none;
         }
         
+        /* Additional Security Features */
+        .security-badge {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            color: rgba(255,255,255,0.3);
+            font-size: 10px;
+            z-index: 9998;
+            user-select: none;
+            pointer-events: none;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero h1 {
@@ -1320,6 +1404,9 @@
         <p>This website is protected against unauthorized copying and distribution.</p>
         <button id="close-security" style="margin-top: 20px; padding: 10px 20px; background: #1a237e; color: white; border: none; border-radius: 5px; cursor: pointer;">I Understand</button>
     </div>
+    
+    <!-- Security Badge -->
+    <div class="security-badge">🔒 NEXUS SOLUTION 603 - PROTECTED</div>
     
     <!-- Login/Register Modal -->
     <div id="authModal" class="auth-modal">
@@ -2743,8 +2830,15 @@
                 
                 <div class="contact-form">
                     <h3 style="margin-bottom: 20px;">Send us a Message</h3>
-                    <form action="https://api.web3forms.com/submit" id="contactForm" method="POST">
+                    
+                    <!-- Form Status Messages -->
+                    <div id="formStatus" class="form-status"></div>
+                    
+                    <form id="contactForm" method="POST">
                         <input type="hidden" name="access_key" value="43f959f6-b52d-4bbd-aa77-6821fbd6306f">
+                        <input type="hidden" name="subject" value="New Contact Form Submission - NEXUS SOLUTION 603">
+                        <input type="checkbox" name="botcheck" style="display: none;">
+                        
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" class="form-control" required>
@@ -2764,11 +2858,12 @@
                             <label for="service">Service Interest</label>
                             <select id="service" name="service" class="form-control">
                                 <option value="">Select a service</option>
-                                <option value="software-dev">Software Development</option>
-                                <option value="web-mobile">Web & Mobile Apps</option>
-                                <option value="cloud">Cloud Solutions</option>
-                                <option value="cybersecurity">Cybersecurity</option>
-                                <option value="products">Product Inquiry</option>
+                                <option value="Software Development">Software Development</option>
+                                <option value="Web & Mobile Apps">Web & Mobile Apps</option>
+                                <option value="Cloud Solutions">Cloud Solutions</option>
+                                <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="Product Inquiry">Product Inquiry</option>
+                                <option value="General Inquiry">General Inquiry</option>
                             </select>
                         </div>
                         
@@ -2777,9 +2872,10 @@
                             <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
                         </div>
                         
-                        <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="cta-button" style="width: 100%;" id="submitBtn">
+                            <span id="submitText">Send Message</span>
+                        </button>
                     </form>
-                    <div id="result" style="margin-top: 15px;"></div>
                 </div>
             </div>
             
@@ -2880,46 +2976,88 @@
     </div>
 
     <script>
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // ========== SECURITY PROTECTION ==========
+        // ========== ENHANCED SECURITY PROTECTION ==========
         const securityOverlay = document.getElementById('security-overlay');
         const closeSecurity = document.getElementById('close-security');
         
-        // Security measures
-        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        // Enhanced security measures
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            securityOverlay.style.display = 'flex';
+            return false;
+        }, false);
+        
         document.addEventListener('copy', (e) => {
             e.preventDefault();
             securityOverlay.style.display = 'flex';
+            return false;
         });
-        document.addEventListener('cut', (e) => e.preventDefault());
-        document.addEventListener('paste', (e) => e.preventDefault());
         
-        // Detect developer tools
-        const devtools = /./;
-        devtools.toString = function() {
+        document.addEventListener('cut', (e) => {
+            e.preventDefault();
             securityOverlay.style.display = 'flex';
-            return '';
-        };
-        console.log('%c', devtools);
+            return false;
+        });
         
-        // Detect keyboard shortcuts for dev tools
+        document.addEventListener('paste', (e) => {
+            e.preventDefault();
+            securityOverlay.style.display = 'flex';
+            return false;
+        });
+        
+        document.addEventListener('selectstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Block keyboard shortcuts
         document.addEventListener('keydown', (e) => {
+            // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
             if(e.keyCode === 123 || 
                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
-               (e.ctrlKey && e.keyCode === 85)) {
+               (e.ctrlKey && e.keyCode === 85) ||
+               (e.ctrlKey && e.keyCode === 83)) {
                 e.preventDefault();
                 securityOverlay.style.display = 'flex';
+                return false;
             }
         });
+        
+        // Detect developer tools
+        const checkDevTools = () => {
+            const threshold = 160;
+            const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+            const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+            
+            if (widthThreshold || heightThreshold) {
+                securityOverlay.style.display = 'flex';
+                document.body.innerHTML = '';
+                window.location.reload();
+            }
+        };
+        
+        setInterval(checkDevTools, 1000);
+        
+        // Detect iframe embedding
+        if (window.top !== window.self) {
+            window.top.location = window.self.location;
+        }
         
         // Close security overlay
         closeSecurity.addEventListener('click', () => {
             securityOverlay.style.display = 'none';
         });
         
-        // ========== MOBILE MENU ==========
+        // ========== BASIC FUNCTIONALITY ==========
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         
@@ -2929,11 +3067,7 @@
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
             
-            if (mobileMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
         
         // Close mobile menu when clicking links
@@ -2945,171 +3079,83 @@
             });
         });
         
-        // ========== AUTH MODAL ==========
-        const authModal = document.getElementById('authModal');
-        const authBtn = document.getElementById('authBtn');
-        const authBtnMobile = document.getElementById('authBtnMobile');
-        const closeAuthModal = document.getElementById('closeAuthModal');
-        const cancelAuth = document.getElementById('cancelAuth');
-        const cancelRegister = document.getElementById('cancelRegister');
-        const backToLogin = document.getElementById('backToLogin');
-        const forgotPassword = document.getElementById('forgotPassword');
-        const authTabs = document.querySelectorAll('.auth-tab');
-        const authForms = document.querySelectorAll('.auth-form');
+        // ========== CONTACT FORM WITH WEB3FORMS ==========
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
         
-        // Open auth modal
-        authBtn.addEventListener('click', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            authModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-        
-        authBtnMobile.addEventListener('click', (e) => {
-            e.preventDefault();
-            authModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            // Close mobile menu if open
-            if (mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-        
-        // Close auth modal
-        closeAuthModal.addEventListener('click', () => {
-            authModal.style.display = 'none';
-            document.body.style.overflow = '';
-            resetAuthForms();
-        });
-        
-        cancelAuth.addEventListener('click', () => {
-            authModal.style.display = 'none';
-            document.body.style.overflow = '';
-            resetAuthForms();
-        });
-        
-        cancelRegister.addEventListener('click', () => {
-            authModal.style.display = 'none';
-            document.body.style.overflow = '';
-            resetAuthForms();
-        });
-        
-        // Close modal when clicking outside
-        authModal.addEventListener('click', (e) => {
-            if (e.target === authModal) {
-                authModal.style.display = 'none';
-                document.body.style.overflow = '';
-                resetAuthForms();
-            }
-        });
-        
-        // Auth tab switching
-        authTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabId = tab.getAttribute('data-tab');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.innerHTML = '<span class="loader"></span> Sending...';
+            
+            // Clear previous status
+            formStatus.className = 'form-status';
+            formStatus.textContent = '';
+            
+            try {
+                // Prepare form data
+                const formData = new FormData(contactForm);
+                formData.append('from_name', 'NEXUS SOLUTION 603 Website');
+                formData.append('redirect', 'false');
                 
-                // Update active tab
-                authTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Show corresponding form
-                authForms.forEach(form => {
-                    form.classList.remove('active');
-                    if (form.id === tabId + 'Form') {
-                        form.classList.add('active');
-                    }
+                // Send to Web3Forms
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
                 });
-            });
-        });
-        
-        // Forgot password
-        forgotPassword.addEventListener('click', (e) => {
-            e.preventDefault();
-            authForms.forEach(form => form.classList.remove('active'));
-            document.getElementById('forgotPasswordForm').classList.add('active');
-        });
-        
-        // Back to login
-        backToLogin.addEventListener('click', () => {
-            authForms.forEach(form => form.classList.remove('active'));
-            document.getElementById('loginForm').classList.add('active');
-            authTabs.forEach(t => t.classList.remove('active'));
-            document.querySelector('[data-tab="login"]').classList.add('active');
-        });
-        
-        // Reset auth forms
-        function resetAuthForms() {
-            authForms.forEach(form => form.classList.remove('active'));
-            document.getElementById('loginForm').classList.add('active');
-            authTabs.forEach(t => t.classList.remove('active'));
-            document.querySelector('[data-tab="login"]').classList.add('active');
-            
-            // Clear form fields
-            document.getElementById('loginForm').reset();
-            document.getElementById('registerForm').reset();
-            document.getElementById('forgotPasswordForm').reset();
-        }
-        
-        // Auth form submission
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitButton = this.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Logging in...';
-            
-            // Simulate login process
-            setTimeout(() => {
-                alert('Login successful! Welcome to NEXUS SOLUTION 603.');
-                authModal.style.display = 'none';
-                document.body.style.overflow = '';
-                this.reset();
-                submitButton.disabled = false;
-                submitButton.textContent = 'Login';
-            }, 1500);
-        });
-        
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('registerConfirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                alert('Passwords do not match!');
-                return;
+                
+                const result = await response.json();
+                
+                if (response.status === 200 && result.success) {
+                    // Success
+                    formStatus.className = 'form-status success';
+                    formStatus.innerHTML = `
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Success!</strong> Thank you for your message. We will contact you within 24 hours.
+                    `;
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Scroll to status message
+                    formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    // Error from Web3Forms
+                    formStatus.className = 'form-status error';
+                    formStatus.innerHTML = `
+                        <i class="fas fa-exclamation-circle"></i>
+                        <strong>Error:</strong> ${result.message || 'Failed to send message. Please try again.'}
+                    `;
+                }
+            } catch (error) {
+                // Network error
+                console.error('Form submission error:', error);
+                formStatus.className = 'form-status error';
+                formStatus.innerHTML = `
+                    <i class="fas fa-exclamation-circle"></i>
+                    <strong>Network Error:</strong> Please check your internet connection and try again.
+                `;
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.textContent = 'Send Message';
+                
+                // Auto-hide success message after 10 seconds
+                if (formStatus.className.includes('success')) {
+                    setTimeout(() => {
+                        formStatus.style.transition = 'opacity 0.5s ease';
+                        formStatus.style.opacity = '0';
+                        setTimeout(() => {
+                            formStatus.className = 'form-status';
+                            formStatus.style.opacity = '1';
+                        }, 500);
+                    }, 10000);
+                }
             }
-            
-            const submitButton = this.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Creating Account...';
-            
-            // Simulate registration process
-            setTimeout(() => {
-                alert('Registration successful! Please check your email for verification.');
-                authModal.style.display = 'none';
-                document.body.style.overflow = '';
-                this.reset();
-                submitButton.disabled = false;
-                submitButton.textContent = 'Register';
-            }, 1500);
-        });
-        
-        document.getElementById('forgotPasswordForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitButton = this.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            
-            // Simulate password reset process
-            setTimeout(() => {
-                alert('Password reset link sent to your email!');
-                backToLogin.click();
-                this.reset();
-                submitButton.disabled = false;
-                submitButton.textContent = 'Send Reset Link';
-            }, 1500);
         });
         
         // ========== FAQ FUNCTIONALITY ==========
@@ -3179,30 +3225,43 @@
             });
         });
         
-        // ========== CONTACT FORM ==========
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitButton = this.querySelector('button[type="submit"]');
-            const result = document.getElementById('result');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            
-            // Simulate form submission
-            setTimeout(() => {
-                result.innerHTML = `<div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; border: 1px solid #c3e6cb;">
-                    <strong>Success!</strong> Thank you for your message. We will contact you within 24 hours.
-                </div>`;
-                this.reset();
+        // ========== AUTH MODAL FUNCTIONALITY ==========
+        const authModal = document.getElementById('authModal');
+        const authBtn = document.getElementById('authBtn');
+        const authBtnMobile = document.getElementById('authBtnMobile');
+        const closeAuthModal = document.getElementById('closeAuthModal');
+        const cancelAuth = document.getElementById('cancelAuth');
+        const cancelRegister = document.getElementById('cancelRegister');
+        
+        // Open auth modal
+        [authBtn, authBtnMobile].forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                authModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
                 
-                submitButton.disabled = false;
-                submitButton.textContent = 'Send Message';
-                
-                // Hide result after 5 seconds
-                setTimeout(() => {
-                    result.innerHTML = '';
-                }, 5000);
-            }, 1500);
+                // Close mobile menu if open
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Close auth modal
+        [closeAuthModal, cancelAuth, cancelRegister].forEach(btn => {
+            btn.addEventListener('click', () => {
+                authModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close modal when clicking outside
+        authModal.addEventListener('click', (e) => {
+            if (e.target === authModal) {
+                authModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
         });
         
         // ========== LEGAL SECTION ==========
@@ -3211,7 +3270,6 @@
         const legalText = document.getElementById('legalText');
         const closeLegal = document.getElementById('closeLegal');
         
-        // Legal content
         const legalData = {
             terms: {
                 title: "Terms & Conditions",
@@ -3233,8 +3291,6 @@
                     
                     <h3>6. Changes to Terms</h3>
                     <p>We reserve the right to modify these terms at any time. Continued use of services constitutes acceptance of changes.</p>
-                    
-                    <p style="margin-top: 30px; color: #ccc; font-size: 14px;">Last updated: March 2024</p>
                 `
             },
             privacy: {
@@ -3254,11 +3310,6 @@
                     
                     <h3>5. Your Rights</h3>
                     <p>You have the right to access, correct, or delete your personal information. Contact us to exercise these rights.</p>
-                    
-                    <h3>6. Cookies</h3>
-                    <p>We use cookies to improve your experience on our website. You can disable cookies in your browser settings.</p>
-                    
-                    <p style="margin-top: 30px; color: #ccc; font-size: 14px;">Last updated: March 2024</p>
                 `
             },
             disclaimer: {
@@ -3275,14 +3326,6 @@
                     
                     <h3>4. External Links</h3>
                     <p>Our website may contain links to external sites. We are not responsible for the content of these sites.</p>
-                    
-                    <h3>5. Professional Advice</h3>
-                    <p>Information on this website should not be considered professional advice. Consult with qualified professionals for specific advice.</p>
-                    
-                    <h3>6. Changes to Disclaimer</h3>
-                    <p>We reserve the right to update this disclaimer at any time without prior notice.</p>
-                    
-                    <p style="margin-top: 30px; color: #ccc; font-size: 14px;">Last updated: March 2024</p>
                 `
             }
         };
@@ -3318,7 +3361,6 @@
             document.body.style.overflow = '';
         });
         
-        // Close legal content when clicking outside
         legalContent.addEventListener('click', (e) => {
             if (e.target === legalContent) {
                 legalContent.style.display = 'none';
@@ -3351,33 +3393,60 @@
         window.addEventListener('load', fadeInOnScroll);
         fadeInOnScroll();
         
-        // ========== ADDITIONAL SECURITY ==========
-        // Block iframe embedding
-        if (window.top !== window.self) {
-            window.top.location = window.self.location;
-        }
-        
-        // Add watermark
-        const watermark = document.createElement('div');
-        watermark.innerHTML = '© NEXUS SOLUTION 603';
-        watermark.style.cssText = `
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            color: rgba(0,0,0,0.1);
-            font-size: 12px;
-            pointer-events: none;
-            z-index: 9999;
-            user-select: none;
-        `;
-        document.body.appendChild(watermark);
-        
-        // Product share functionality
-        document.querySelectorAll('.share-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
+        // ========== ADDITIONAL ENHANCEMENTS ==========
+        // Add loading state for all buttons with async operations
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                const submitBtn = this.querySelector('button[type="submit"]');
+                if (submitBtn && !submitBtn.id) {
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span class="loader"></span> Processing...';
+                    
+                    // Reset after 10 seconds (fallback)
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }, 10000);
+                }
             });
         });
+        
+        // Add hover effect to all cards
+        document.querySelectorAll('.service-card, .product-card, .team-member').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Initialize all tooltips
+        document.querySelectorAll('[title]').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.textContent = this.title;
+                document.body.appendChild(tooltip);
+                
+                const rect = this.getBoundingClientRect();
+                tooltip.style.left = rect.left + 'px';
+                tooltip.style.top = (rect.top - 30) + 'px';
+                
+                this._tooltip = tooltip;
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                if (this._tooltip) {
+                    document.body.removeChild(this._tooltip);
+                    delete this._tooltip;
+                }
+            });
+        });
+        
+        console.log('NEXUS SOLUTION 603 - Website loaded successfully with enhanced security.');
     </script>
 </body>
 </html>
