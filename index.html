@@ -111,7 +111,7 @@
     <style>
         /* ========== CRITICAL CSS ========== */
         
-        /* Security CSS - Less Intrusive */
+        /* Enhanced Copy Protection */
         * {
             -webkit-user-select: text !important;
             -moz-user-select: text !important;
@@ -124,6 +124,25 @@
             -moz-user-select: none !important;
             -ms-user-select: none !important;
             user-select: none !important;
+        }
+        
+        /* Disable text selection on specific elements */
+        .disable-selection {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+        }
+        
+        /* Enhanced copy protection */
+        body::selection {
+            background: rgba(26, 35, 126, 0.1);
+            color: inherit;
+        }
+        
+        body::-moz-selection {
+            background: rgba(26, 35, 126, 0.1);
+            color: inherit;
         }
         
         /* Skip link for accessibility */
@@ -638,6 +657,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 50%;
         }
         
         .member-name {
@@ -1228,13 +1248,13 @@
             font-size: 14px;
         }
         
-        /* WhatsApp Floating Button */
+        /* WhatsApp Floating Button - UPDATED POSITION */
         .whatsapp-float {
             position: fixed;
             width: 60px;
             height: 60px;
-            bottom: 40px;
-            right: 40px;
+            bottom: 30px;
+            right: 30px;
             background-color: #25D366;
             color: #FFF;
             border-radius: 50px;
@@ -1259,7 +1279,7 @@
         .back-to-top {
             position: fixed;
             bottom: 100px;
-            right: 40px;
+            right: 30px;
             width: 50px;
             height: 50px;
             background: #1a237e;
@@ -1446,13 +1466,13 @@
             .whatsapp-float {
                 width: 55px;
                 height: 55px;
-                bottom: 30px;
-                right: 30px;
+                bottom: 25px;
+                right: 25px;
             }
             
             .back-to-top {
-                bottom: 90px;
-                right: 30px;
+                bottom: 85px;
+                right: 25px;
             }
             
             .team-apply-content {
@@ -1503,13 +1523,13 @@
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
-                bottom: 25px;
-                right: 25px;
+                bottom: 20px;
+                right: 20px;
             }
             
             .back-to-top {
-                bottom: 80px;
-                right: 25px;
+                bottom: 75px;
+                right: 20px;
             }
             
             .team-apply-content {
@@ -1545,8 +1565,8 @@
             .whatsapp-float {
                 width: 45px;
                 height: 45px;
-                bottom: 20px;
-                right: 20px;
+                bottom: 15px;
+                right: 15px;
             }
             
             .team-member {
@@ -1588,16 +1608,16 @@
             .whatsapp-float {
                 width: 40px;
                 height: 40px;
-                bottom: 15px;
-                right: 15px;
+                bottom: 10px;
+                right: 10px;
                 font-size: 24px;
             }
             
             .back-to-top {
                 width: 40px;
                 height: 40px;
-                bottom: 65px;
-                right: 15px;
+                bottom: 60px;
+                right: 10px;
             }
         }
         
@@ -1614,8 +1634,8 @@
             .whatsapp-float {
                 width: 55px;
                 height: 55px;
-                bottom: 25px;
-                right: 25px;
+                bottom: 20px;
+                right: 20px;
             }
         }
         
@@ -1787,7 +1807,7 @@
         </div>
     </div>
     
-    <!-- WhatsApp Floating Button -->
+    <!-- WhatsApp Floating Button - Updated Position -->
     <a href="https://wa.me/923169405908?text=Hello%20NEXUS%20SOLUTION%20603,%20I%20need%20information%20about%20your%20services" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -2956,9 +2976,11 @@
                 </div>
                 
                 <div class="team-grid">
-                    <!-- Team Member 1 -->
+                    <!-- Team Member 1 - AJ -->
                     <div class="team-member fade-in">
                         <div class="member-photo">
+                            <!-- Replace the div below with img tag when you have the image URL -->
+                            <!-- <img src="YOUR_IMAGE_URL_HERE" alt="Ali Javed"> -->
                             <div style="display: flex; align-items: center; justify-content: center; font-size: 40px; width: 100%; height: 100%;">AJ</div>
                         </div>
                         <h3 class="member-name">Ali Javed</h3>
@@ -2984,14 +3006,14 @@
                             </a>
                         </div>
                         
-                        <button class="team-apply-btn apply-for-team" data-member="Ali Javed">
-                            Apply to Work With Ali
-                        </button>
+                        <!-- Apply button removed from individual members -->
                     </div>
                     
-                    <!-- Team Member 2 -->
+                    <!-- Team Member 2 - SR -->
                     <div class="team-member fade-in">
                         <div class="member-photo">
+                            <!-- Replace the div below with img tag when you have the image URL -->
+                            <!-- <img src="YOUR_IMAGE_URL_HERE" alt="Sara Raza"> -->
                             <div style="display: flex; align-items: center; justify-content: center; font-size: 40px; width: 100%; height: 100%;">SR</div>
                         </div>
                         <h3 class="member-name">Sara Raza</h3>
@@ -3017,14 +3039,14 @@
                             </a>
                         </div>
                         
-                        <button class="team-apply-btn apply-for-team" data-member="Sara Raza">
-                            Apply to Work With Sara
-                        </button>
+                        <!-- Apply button removed from individual members -->
                     </div>
                     
-                    <!-- Team Member 3 -->
+                    <!-- Team Member 3 - MR -->
                     <div class="team-member fade-in">
                         <div class="member-photo">
+                            <!-- Replace the div below with img tag when you have the image URL -->
+                            <!-- <img src="YOUR_IMAGE_URL_HERE" alt="M. Rizwan"> -->
                             <div style="display: flex; align-items: center; justify-content: center; font-size: 40px; width: 100%; height: 100%;">MR</div>
                         </div>
                         <h3 class="member-name">M. Rizwan</h3>
@@ -3050,14 +3072,14 @@
                             </a>
                         </div>
                         
-                        <button class="team-apply-btn apply-for-team" data-member="M. Rizwan">
-                            Apply to Work With Rizwan
-                        </button>
+                        <!-- Apply button removed from individual members -->
                     </div>
                     
-                    <!-- Team Member 4 -->
+                    <!-- Team Member 4 - FK -->
                     <div class="team-member fade-in">
                         <div class="member-photo">
+                            <!-- Replace the div below with img tag when you have the image URL -->
+                            <!-- <img src="YOUR_IMAGE_URL_HERE" alt="F. Khan"> -->
                             <div style="display: flex; align-items: center; justify-content: center; font-size: 40px; width: 100%; height: 100%;">FK</div>
                         </div>
                         <h3 class="member-name">F. Khan</h3>
@@ -3083,14 +3105,14 @@
                             </a>
                         </div>
                         
-                        <button class="team-apply-btn apply-for-team" data-member="F. Khan">
-                            Apply to Work With Khan
-                        </button>
+                        <!-- Apply button removed from individual members -->
                     </div>
                     
-                    <!-- Team Member 5 -->
+                    <!-- Team Member 5 - AK -->
                     <div class="team-member fade-in">
                         <div class="member-photo">
+                            <!-- Replace the div below with img tag when you have the image URL -->
+                            <!-- <img src="YOUR_IMAGE_URL_HERE" alt="A. Kamal"> -->
                             <div style="display: flex; align-items: center; justify-content: center; font-size: 40px; width: 100%; height: 100%;">AK</div>
                         </div>
                         <h3 class="member-name">A. Kamal</h3>
@@ -3116,14 +3138,14 @@
                             </a>
                         </div>
                         
-                        <button class="team-apply-btn apply-for-team" data-member="A. Kamal">
-                            Apply to Work With Kamal
-                        </button>
+                        <!-- Apply button removed from individual members -->
                     </div>
                     
-                    <!-- Team Member 6 -->
+                    <!-- Team Member 6 - NS -->
                     <div class="team-member fade-in">
                         <div class="member-photo">
+                            <!-- Replace the div below with img tag when you have the image URL -->
+                            <!-- <img src="YOUR_IMAGE_URL_HERE" alt="N. Shah"> -->
                             <div style="display: flex; align-items: center; justify-content: center; font-size: 40px; width: 100%; height: 100%;">NS</div>
                         </div>
                         <h3 class="member-name">N. Shah</h3>
@@ -3149,12 +3171,11 @@
                             </a>
                         </div>
                         
-                        <button class="team-apply-btn apply-for-team" data-member="N. Shah">
-                            Apply to Work With Shah
-                        </button>
+                        <!-- Apply button removed from individual members -->
                     </div>
                 </div>
                 
+                <!-- Single Apply Button at the end of team section -->
                 <div style="text-align: center; margin-top: 40px;">
                     <button class="cta-button" id="applyForTeamGeneral">Join Our Team</button>
                 </div>
@@ -3409,6 +3430,29 @@
             }
         });
         
+        // Block keyboard shortcuts for copy
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+C or Cmd+C
+            if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
+                const selection = window.getSelection();
+                if (selection.toString().length > 100) { // Only block large copies
+                    e.preventDefault();
+                    securityOverlay.style.display = 'flex';
+                    return false;
+                }
+            }
+            // Ctrl+A (select all) - partially block
+            if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+                // Allow select all but show warning
+                setTimeout(() => {
+                    const selection = window.getSelection();
+                    if (selection.toString().length > 1000) {
+                        securityOverlay.style.display = 'flex';
+                    }
+                }, 100);
+            }
+        });
+        
         // Close security overlay
         closeSecurity.addEventListener('click', () => {
             securityOverlay.style.display = 'none';
@@ -3446,20 +3490,13 @@
         // ========== TEAM APPLY MODAL ==========
         const teamApplyModal = document.getElementById('teamApplyModal');
         const closeApplyModal = document.getElementById('closeApplyModal');
-        const applyButtons = document.querySelectorAll('.apply-for-team, #applyForTeamGeneral');
+        const applyButtons = document.querySelectorAll('#applyForTeamGeneral');
         
         // Open apply modal
         applyButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const memberName = button.getAttribute('data-member') || 'General Application';
                 teamApplyModal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
-                
-                // Set the position field if applying with specific member
-                if (memberName !== 'General Application') {
-                    const positionSelect = document.getElementById('teamPosition');
-                    positionSelect.focus();
-                }
             });
         });
         
