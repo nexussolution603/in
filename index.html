@@ -246,6 +246,7 @@
             color: #333;
             background-color: #f8f9fa;
             overflow-x: hidden;
+            width: 100%;
         }
         
         /* Focus styles for accessibility */
@@ -273,12 +274,12 @@
             }
         }
         
-        /* Container */
+        /* Container - FIXED FOR STRAIGHT LAYOUT */
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         /* Header & Navigation - FIXED */
@@ -297,7 +298,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         /* Logo Style - FIXED FOR MOBILE */
@@ -336,6 +337,8 @@
             list-style: none;
             align-items: center;
             flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
         }
         
         .nav-links li {
@@ -461,6 +464,8 @@
         
         .mobile-menu ul {
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
         
         .mobile-menu li {
@@ -495,6 +500,7 @@
             min-height: 70vh;
             display: flex;
             align-items: center;
+            width: 100%;
         }
         
         .hero h1 {
@@ -541,15 +547,16 @@
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
         
-        /* All Sections Common */
+        /* All Sections Common - FIXED FOR STRAIGHT LAYOUT */
         .section {
             padding: 70px 0;
+            width: 100%;
         }
         
         .section-title {
             text-align: center;
             margin-bottom: 40px;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         .section-title h2 {
@@ -565,12 +572,12 @@
             font-size: 16px;
         }
         
-        /* Services Section */
+        /* Services Section - FIXED */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         .service-card {
@@ -580,6 +587,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: all 0.3s;
             border-top: 4px solid #1a237e;
+            width: 100%;
         }
         
         .service-card:hover {
@@ -593,15 +601,16 @@
             margin-bottom: 20px;
         }
         
-        /* Testimonials Section */
+        /* Testimonials Section - FIXED */
         .testimonials-section {
             background: #f9f9f9;
+            width: 100%;
         }
         
         .testimonials-slider {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         .testimonial-card {
@@ -611,6 +620,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             margin: 15px;
             border-top: 4px solid #1a237e;
+            width: 100%;
         }
         
         .testimonial-text {
@@ -644,13 +654,13 @@
             margin-bottom: 5px;
         }
         
-        /* About Section */
+        /* About Section - FIXED */
         .about-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             align-items: center;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         .about-text h3 {
@@ -659,9 +669,10 @@
             font-size: 28px;
         }
         
-        /* ========== EXPANDED TEAM SECTION ========== */
+        /* ========== EXPANDED TEAM SECTION - FIXED ========== */
         .team-section {
             background: #f9f9f9;
+            width: 100%;
         }
         
         .team-grid {
@@ -669,7 +680,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 40px;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         .team-member {
@@ -684,6 +695,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
         }
         
         .team-member:hover {
@@ -898,12 +910,12 @@
             color: #333;
         }
         
-        /* Products Section - IMPROVED GRID */
+        /* Products Section - IMPROVED GRID - FIXED */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         .product-card {
@@ -915,6 +927,7 @@
             display: flex;
             flex-direction: column;
             border-top: 4px solid #1a237e;
+            width: 100%;
         }
         
         .product-card:hover {
@@ -1037,15 +1050,16 @@
         .badge-featured { background: #4caf50; }
         .badge-premium { background: #9c27b0; }
         
-        /* FAQ Section */
+        /* FAQ Section - FIXED */
         .faq-section {
             background: #f9f9f9;
+            width: 100%;
         }
         
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         .faq-item {
@@ -1055,6 +1069,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-left: 4px solid #1a237e;
             overflow: hidden;
+            width: 100%;
         }
         
         .faq-question {
@@ -1095,12 +1110,13 @@
             transform: rotate(180deg);
         }
         
-        /* Contact Section */
+        /* Contact Section - FIXED FULL DISPLAY */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            padding: 0 15px;
+            padding: 0 20px;
+            width: 100%;
         }
         
         .contact-info {
@@ -1128,6 +1144,7 @@
             flex-shrink: 0;
         }
         
+        /* CONTACT FORM FIXED FOR FULL DISPLAY */
         .contact-form {
             background: white;
             padding: 25px;
@@ -1135,6 +1152,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             border-top: 4px solid #1a237e;
             position: relative;
+            width: 100%;
         }
         
         /* Form Status Messages */
@@ -1191,6 +1209,7 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             border: 1px solid #ddd;
+            width: 100%;
         }
         
         .map-frame {
@@ -1200,11 +1219,12 @@
             display: block !important;
         }
         
-        /* Footer */
+        /* ========== FOOTER - FIXED STRAIGHT LAYOUT ========== */
         footer {
             background: #1a237e;
             color: white;
             padding: 50px 0 25px;
+            width: 100%;
         }
         
         .footer-grid {
@@ -1212,7 +1232,7 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-bottom: 30px;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         .footer-logo {
@@ -1249,6 +1269,8 @@
         
         .footer-links ul {
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
         
         .footer-links li {
@@ -1291,13 +1313,32 @@
             transform: translateY(-3px);
         }
         
+        /* FOOTER BOTTOM - FIXED STRAIGHT */
         .footer-bottom {
             text-align: center;
             padding-top: 25px;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #ccc;
             font-size: 14px;
-            padding: 0 15px;
+            padding: 25px 20px 0;
+            width: 100%;
+        }
+        
+        .footer-bottom p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+        
+        .footer-bottom a {
+            color: #bbdefb;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+        
+        .footer-bottom a:hover {
+            color: white;
+            text-decoration: underline;
         }
         
         /* WhatsApp Floating Button - FIXED POSITION FOR MOBILE */
@@ -1436,7 +1477,7 @@
             background: #283593;
         }
         
-        /* Form Styles */
+        /* Form Styles - FIXED FOR FULL WIDTH */
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1446,6 +1487,7 @@
         
         .form-group {
             margin-bottom: 15px;
+            width: 100%;
         }
         
         .form-group label {
@@ -1464,6 +1506,7 @@
             font-family: 'Poppins', sans-serif;
             font-size: 15px;
             transition: all 0.3s;
+            box-sizing: border-box;
         }
         
         .form-control:focus {
@@ -1629,6 +1672,11 @@
             .map-frame {
                 height: 300px;
             }
+            
+            /* Contact form padding for mobile */
+            .contact-form {
+                padding: 20px;
+            }
         }
         
         /* Extra small screens (576px and below) */
@@ -1674,6 +1722,15 @@
             .mobile-menu a {
                 font-size: 14px;
                 padding: 12px 0;
+            }
+            
+            /* Contact form */
+            .contact-form {
+                padding: 15px;
+            }
+            
+            .footer-bottom {
+                padding: 20px 15px 0;
             }
         }
         
@@ -1725,7 +1782,11 @@
             
             /* Fix for very small devices */
             .container {
-                padding: 0 10px;
+                padding: 0 15px;
+            }
+            
+            .contact-form {
+                padding: 15px;
             }
         }
         
@@ -1799,8 +1860,6 @@
         <p>This website is protected against unauthorized copying and distribution</p> 
         <button id="close-security" style="margin-top: 20px; padding: 10px 20px; background: #1a237e; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">I Understand</button>
     </div>
-    
-    
     
     <!-- Security Badge -->
     <div class="security-badge">🔒 NEXUS SOLUTION 603 - PROTECTED</div>
@@ -3222,7 +3281,7 @@
             </div>
         </section>
         
-        <!-- ========== CONTACT SECTION ========== -->
+        <!-- ========== CONTACT SECTION - FIXED FULL DISPLAY ========== -->
         <section class="section" id="contact">
             <div class="container">
                 <div class="section-title">
@@ -3362,7 +3421,7 @@
         </section>
     </main>
     
-    <!-- Footer -->
+    <!-- ========== FOOTER - FIXED STRAIGHT LAYOUT ========== -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -3420,11 +3479,11 @@
             
             <div class="footer-bottom">
                 <p>&copy; <span id="currentYear"></span> NEXUS SOLUTION 603. All rights reserved.</p>
-                <p style="margin-top: 10px;">
-                    <a href="#terms" style="color: #bbdefb; text-decoration: none; margin: 0 10px;" id="showTerms">Terms & Conditions</a> | 
-                    <a href="#privacy" style="color: #bbdefb; text-decoration: none; margin: 0 10px;" id="showPrivacy">Privacy Policy</a> | 
-                    <a href="#disclaimer" style="color: #bbdefb; text-decoration: none; margin: 0 10px;" id="showDisclaimer">Disclaimer</a> |
-                    <a href="#cookies" style="color: #bbdefb; text-decoration: none; margin: 0 10px;" id="showCookies">Cookies Policy</a>
+                <p>
+                    <a href="#terms" id="showTerms">Terms & Conditions</a> | 
+                    <a href="#privacy" id="showPrivacy">Privacy Policy</a> | 
+                    <a href="#disclaimer" id="showDisclaimer">Disclaimer</a> |
+                    <a href="#cookies" id="showCookies">Cookies Policy</a>
                 </p>
                 <p style="margin-top: 10px; color: #999; font-size: 12px;">This website is protected by security measures. Unauthorized copying or distribution is prohibited.</p>
             </div>
@@ -4372,6 +4431,12 @@
         
         setVh();
         window.addEventListener('resize', setVh);
+        
+        // Fix for iOS 100vh issue
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        window.addEventListener('resize', () => {
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        });
     </script>
 </body>
 </html>
