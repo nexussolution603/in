@@ -1,13 +1,13 @@
 // service-worker.js
 const CACHE_NAME = 'nexus-solution-v2';
 const urlsToCache = [
-  '/root /',
-  '/root/index.html',
-  '/root/manifest.json',
+  '/in/',
+  '/in/index.html',
+  '/in/manifest.json',
   // Images
-  '/root/Ceo.png',
-  '/root/Anfal.jpg',
-  '/root/Danyal.jpg',
+  '/in/Ceo.png',
+  '/in/Anfal.jpg',
+  '/in/Danyal.jpg',
   // External resources
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
   'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap',
