@@ -4440,6 +4440,64 @@
         });
     </script>
 
-                       
+
+
+                   
+                       <script>
+// PWA Installation
+let deferredPrompt;
+const installButton = document.createElement('div');
+installButton.innerHTML = `
+  <div style="position: fixed; bottom: 100px; left: 20px; background: #1a237e; color: white; padding: 12px 20px; border-radius: 30px; cursor: pointer; z-index: 1000; box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3); display: none; align-items: center; gap: 10px;">
+    <i class="fas fa-download"></i>
+    <span>Install App</span>
+  </div>
+`;
+document.body.appendChild(installButton);
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installButton.style.display = 'flex';
+  
+  installButton.onclick = () => {
+    installButton.style.display = 'none';
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted install');
+      } else {
+        console.log('User dismissed install');
+      }
+      deferredPrompt = null;
+    });
+  };
+});
+
+// Detect if app is installed
+window.addEventListener('appinstalled', () => {
+  console.log('PWA installed successfully');
+  installButton.style.display = 'none';
+});
+
+// Check if running in standalone mode
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+  console.log('Running in standalone mode');
+  document.body.classList.add('standalone-mode');
+}
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/in/service-worker.js')
+      .then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      })
+      .catch(err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+  });
+}
+</script>
 </body>
 </html>
